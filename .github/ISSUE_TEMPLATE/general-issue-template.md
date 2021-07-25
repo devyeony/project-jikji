@@ -1,6 +1,6 @@
 ---
-name: Custom issue template
-about: Describe this issue template's purpose here.
+name: General Issue Template
+about: 일반적인 이슈 템플릿
 title: ''
 labels: ''
 assignees: ''
