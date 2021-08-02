@@ -1,1 +1,1 @@
-# 프로젝트 금속활자 (Project Metal Movable Type, PMMT)
+# 금속활자 프로젝트 (Project Metal Movable Type, PMMT)
