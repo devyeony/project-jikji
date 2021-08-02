@@ -1,1 +1,1 @@
-# 프로젝트 금속활자 (Project Metal Movable Type, PMMT)
+# 프로젝트 직지 (Project Jikji)
