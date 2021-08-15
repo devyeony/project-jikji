@@ -8,6 +8,7 @@
 - 
 
 ## ❤️ Member
+**더 리더스( The Leaders / The Readers )** 팀원들
 |Backend, DB, Server|Frontend, UX/UI|
 |:---:|:---:|
 |<img src="https://raw.githubusercontent.com/devyeony/project-jikji/main/.github/IMAGE/wiki/main/devyeony_img.png" width="220px">|<img src="https://raw.githubusercontent.com/devyeony/project-jikji/main/.github/IMAGE/wiki/main/Minseo_img.jpg" width="200px">|
@@ -15,7 +16,7 @@
 
 ## 🤝 Collaboration
 ![GitHub issues](https://img.shields.io/github/issues-raw/devyeony/project-jikji?color=gree) ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/devyeony/project-jikji?color=red) ![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/devyeony/project-jikji?color=gree) ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/devyeony/project-jikji?color=red)
-- [Wiki](https://github.com/devyeony/project-jikji/wiki) 
+- [더 리더스의 Wiki](https://github.com/devyeony/project-jikji/wiki) 
     - 스프린트 과정, 팀 규칙을 기록하는 프로젝트 아카이브
     - 프로젝트와 관련한 상세 정보 및 설명 기술
 
