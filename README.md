@@ -14,8 +14,8 @@
 |김연희([@devyeony](https://github.com/devyeony))|강민서([@Minseo-Gang](https://github.com/Minseo-Gang))|
 
 ## 🤝 Collaboration
-
-- [Wiki](https://github.com/devyeony/project-jikji/wiki)
+![GitHub issues](https://img.shields.io/github/issues-raw/devyeony/project-jikji?color=gree) ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/devyeony/project-jikji?color=red) ![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/devyeony/project-jikji?color=gree) ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/devyeony/project-jikji?color=red)
+- [Wiki](https://github.com/devyeony/project-jikji/wiki) 
     - 스프린트 과정, 팀 규칙을 기록하는 프로젝트 아카이브
     - 프로젝트와 관련한 상세 정보 및 설명 기술
 
