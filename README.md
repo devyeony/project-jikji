@@ -1,5 +1,5 @@
 # 프로젝트 직지 (Project Jikji)
-> 📚저작권 없는 무료 전자책📖을 한국어 번역으로 만나보세요! [프로젝트 구텐베르크](https://www.gutenberg.org/)의 한국어 번역 플랫폼✨
+> 📚저작권 없는 무료 전자책📖을 한국어 번역으로 만나보세요! [프로젝트 구텐베르크](https://www.gutenberg.org/) 의 한국어 번역 플랫폼✨
 
 [대표 이미지]
 
@@ -9,6 +9,7 @@
 
 ## ❤️ Member
 **더 리더스( The Leaders / The Readers )** 팀원들
+
 |Backend, DB, Server|Frontend, UX/UI|
 |:---:|:---:|
 |<img src="https://raw.githubusercontent.com/devyeony/project-jikji/main/.github/IMAGE/wiki/main/devyeony_img.png" width="220px">|<img src="https://raw.githubusercontent.com/devyeony/project-jikji/main/.github/IMAGE/wiki/main/Minseo_img.jpg" width="200px">|
