@@ -16,10 +16,10 @@
 |김연희([@devyeony](https://github.com/devyeony))|강민서([@Minseo-Gang](https://github.com/Minseo-Gang))|
 
 ## 🤝 Collaboration Flow
-<a href="https://github.com/devyeony/project-jikji/issues?q=is%3Aissue+is%3Aopen" target=_blank><img src="https://img.shields.io/github/issues-raw/devyeony/project-jikji?color=gree"></a>
-<a href="https://github.com/devyeony/project-jikji/issues?q=is%3Aissue+is%3Aclosed" target=_blank><img src="https://img.shields.io/github/issues-closed-raw/devyeony/project-jikji?color=red"></a>
-<a href="https://github.com/devyeony/project-jikji/pulls?q=is%3Apr+is%3Aopen" target=_blank><img src="https://img.shields.io/github/issues-pr-raw/devyeony/project-jikji?color=gree"></a>
-<a href="https://github.com/devyeony/project-jikji/pulls?q=is%3Apr+is%3Aclosed" target=_blank><img src="https://img.shields.io/github/issues-pr-closed-raw/devyeony/project-jikji?color=red"></a>
+<a href="https://github.com/devyeony/project-jikji/issues?q=is%3Aissue+is%3Aopen"><img src="https://img.shields.io/github/issues-raw/devyeony/project-jikji?color=gree"></a>
+<a href="https://github.com/devyeony/project-jikji/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed-raw/devyeony/project-jikji?color=red"></a>
+<a href="https://github.com/devyeony/project-jikji/pulls?q=is%3Apr+is%3Aopen"><img src="https://img.shields.io/github/issues-pr-raw/devyeony/project-jikji?color=gree"></a>
+<a href="https://github.com/devyeony/project-jikji/pulls?q=is%3Apr+is%3Aclosed"><img src="https://img.shields.io/github/issues-pr-closed-raw/devyeony/project-jikji?color=red"></a>
 - [더 리더스의 Wiki](https://github.com/devyeony/project-jikji/wiki) 
     - 스프린트 과정, 팀 규칙을 기록하는 프로젝트 아카이브
     - 프로젝트와 관련한 상세 정보 및 설명 기술
