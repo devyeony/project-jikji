@@ -30,8 +30,10 @@
 
 ## 📚 Tech Stack
 
-- 
+- [기술스택 상세 - 특징 및 선택 이유](https://github.com/devyeony/project-jikji/wiki/Tech-Stack)  
 
-## ⚙️ Using
+[기술스택 시각화 이미지]
+
+## ⚙️ Usage
 
 -
