@@ -11,6 +11,7 @@ jobs:
         - $HOME/.gradle/caches/
         - $HOME/.gradle/wrapper/
     install:
+      - cd backend
       - chmod +x gradlew
     script: 
       - ./gradlew clean build
