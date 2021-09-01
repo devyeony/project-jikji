@@ -9,7 +9,7 @@ matrix:
         - $HOME/.gradle/caches/
         - $HOME/.gradle/wrapper/
     script: 
-      - ./gradlew clean build"
+      - ./gradlew clean build
   - language: node_js
     node_js: 14
     cache: npm
