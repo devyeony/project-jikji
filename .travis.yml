@@ -1,17 +1,9 @@
 branches:
   only: 
-    - main
     - develop
-
-stages:
-  - name: main
-    if: branch = main
-  - name: develop
-    if: branch = develop
 
 matrix:
   include:
-  - stage: develop
   - language: java
     jdk: openjdk11
     cache:
@@ -30,3 +22,7 @@ matrix:
       - npm install
     script: 
       - npm run build
+
+notifications:
+  slack: $SLACK_NOTIFICATION
+  email: false
