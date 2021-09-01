@@ -17,6 +17,6 @@ matrix:
     cache: npm
     before_script:
       - cd frontend
-    script: 
       - npm install
+    script: 
       - npm run build
