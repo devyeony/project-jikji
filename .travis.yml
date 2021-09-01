@@ -11,9 +11,8 @@ jobs:
         - $HOME/.gradle/caches/
         - $HOME/.gradle/wrapper/
     install:
-      - chmod +x gradlew
-    before_script:
       - cd backend
+      - chmod +x gradlew
     script: 
       - ./gradlew clean build
   - language: node_js
