@@ -1,0 +1,19 @@
+matrix:
+  include:
+    branches:
+      only: develop
+  - language: java
+    jdk: openjdk11
+    cache:
+      directories:
+        - $HOME/.gradle/caches/
+        - $HOME/.gradle/wrapper/
+    script: 
+      - ./gradlew clean build"
+  - language: node_js
+    node_js: 14
+    cache: npm
+    before_script:
+      - cd frontend
+    script: 
+      - npm run build
