@@ -30,7 +30,3 @@ matrix:
       - npm install
     script: 
       - npm run build
-
-notifications:
-  slack: $SLACK_NOTIFICATION
-  email: false
