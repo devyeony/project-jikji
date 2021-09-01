@@ -9,7 +9,7 @@ matrix:
         - $HOME/.gradle/caches/
         - $HOME/.gradle/wrapper/
     before_script:
-      - chmod +x ./gradlew
+      - chmod +x gradlew
     script: 
       - ./gradlew clean build
   - language: node_js
