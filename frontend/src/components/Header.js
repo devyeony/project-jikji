@@ -9,8 +9,8 @@ class Header extends React.Component{
             <div className="topbar">
 			    <div className="container">
 				    <div className="social-links">
-					    <a href="#" className="login">로그인</a> 
-					    <a href="#" className="join">회원가입</a>
+					    <a href="#!" className="login">로그인</a>
+					    <a href="#!" className="join">회원가입</a>
 				    </div>
 			    </div>
 		    </div>
@@ -19,13 +19,13 @@ class Header extends React.Component{
                 <div className="container-fluid">
                     <div className="navbar-header">
                         <div className="navbar-brand">
-                            <a href="#"><i className="fas fa-book-reader"></i>JIKJI</a>
+                            <a href="#!"><i className="fas fa-book-reader"></i>JIKJI</a>
                         </div>
                         <ul className="navbar-nav">
-                            <li><a href="#">VIEWER</a></li>
-                            <li><a href="#">마이페이지</a></li>
-                            <li><a href="#">검색 및 조회</a></li>
-                            <li><a href="#">통계자료</a></li>
+                            <li><a href="#!">VIEWER</a></li>
+                            <li><a href="#!">마이페이지</a></li>
+                            <li><a href="#!">검색 및 조회</a></li>
+                            <li><a href="#!">통계자료</a></li>
                         </ul>
                     </div>
                 </div>
