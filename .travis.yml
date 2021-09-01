@@ -1,3 +1,5 @@
+sudo: required
+
 branches:
   only: 
     - develop
@@ -10,8 +12,6 @@ matrix:
       directories:
         - $HOME/.gradle/caches/
         - $HOME/.gradle/wrapper/
-    install:
-      - chmod +x gradlew
     script: 
       - ./gradlew clean build
   - language: node_js
