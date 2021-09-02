@@ -5,7 +5,7 @@
 
 ## 👉 URL
 
-- [project-jikji.netlify.app/](project-jikji.netlify.app/)
+- [https://project-jikji.netlify.app/](https://project-jikji.netlify.app/)
 
 ## ❤️ Member
 **더 리더스( The Leaders / The Readers )** 팀원들
