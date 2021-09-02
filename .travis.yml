@@ -21,7 +21,7 @@ jobs:
       - cd frontend
       - npm install
     script: 
-      - npm run build
+      - npm run build:dev
 
 notifications:
   slack:

@@ -3,6 +3,8 @@ import './App.css';
 //import Header from './components/Header';
 //import Footer from './components/Footer';
 import axios from 'axios';
+import dotenv from "dotenv";
+dotenv.config();
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import Button from '@material-ui/core/Button';
@@ -21,8 +23,9 @@ class App extends React.Component {
   };
   
   test = async () => {
-    const tests = await axios.get('http://ec2-15-165-84-47.ap-northeast-2.compute.amazonaws.com:7000/hello');
+    const tests = await axios.get(process.env.REACT_APP_API_URL+'/hello');
     console.log(tests);
+    console.log(tests.data);
   }
   componentDidMount() {
     this.test();
