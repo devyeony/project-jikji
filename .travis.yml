@@ -26,11 +26,8 @@ jobs:
     branches:
       only: 
         - develop
-    language: 
-      - java
-      - node_js
+    language: java
     jdk: openjdk11
-    node_js: 14
     cache:
       directories:
         - $HOME/.gradle/caches/
