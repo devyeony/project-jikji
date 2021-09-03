@@ -1,14 +1,11 @@
 import React, {Fragment} from 'react';
 import axios from 'axios';
 import './App.css';
-<<<<<<< Updated upstream
-//import Header from './components/Header';
+import Header from './components/Header';
 //import Footer from './components/Footer';
-import axios from 'axios';
 import dotenv from "dotenv";
 dotenv.config();
 
-=======
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -18,7 +15,6 @@ import Mypage from './components/Mypage';
 import Search from './components/Search';
 import Viewer from './components/Viewer';
 import Statistics from './components/Statistics';
->>>>>>> Stashed changes
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import Button from '@material-ui/core/Button';
 
