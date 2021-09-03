@@ -3,42 +3,38 @@ branches:
     - develop
 
 stages:
-  - backend
-  - frontend
+  - build
   - before_deploy
   - deploy
 
 jobs:
   include:
-  - stage: backend
-    branches:
-      only: 
-        - develop
+  - stage: build
+    - branch: develop
+      language: java
+      jdk: openjdk11
+      cache:
+        directories:
+          - $HOME/.gradle/caches/
+          - $HOME/.gradle/wrapper/
+      install:
+        - chmod +x gradlew
+      script: 
+        - ./gradlew clean build
+    - branch: develop
+      language: node_js
+      node_js: 14
+      cache: npm
+      before_script:
+        - cd frontend
+        - npm install
+      script: 
+        - npm run build:dev
+        - rm -rf node_modules
+        - cd ..
+  - stage: before_deploy
     language: java
     jdk: openjdk11
-    cache:
-      directories:
-        - $HOME/.gradle/caches/
-        - $HOME/.gradle/wrapper/
-    install:
-      - chmod +x gradlew
-    script: 
-      - ./gradlew clean build
-  - stage: frontend
-    branches:
-      only: 
-        - develop
-    language: node_js
-    node_js: 14
-    cache: npm
-    before_script:
-      - cd frontend
-      - npm install
-    script: 
-      - npm run build:dev
-      - rm -rf node_modules
-      - cd ..
-  - stage: before_deploy
     before_deploy:
     - mkdir -p before-deploy
     - cp scripts/*.sh before-deploy/
@@ -49,6 +45,8 @@ jobs:
     - cd ../ && mkdir -p deploy
     - mv before-deploy/before-deploy.zip deploy/project-jikji.zip
   - stage: deploy
+    language: java
+    jdk: openjdk11
     deploy:
     - provider: s3
       access_key_id: $AWS_ACCESS_KEY
