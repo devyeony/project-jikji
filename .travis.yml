@@ -31,9 +31,14 @@ jobs:
 
 before_deploy:
   - rm -rf node_modules
-  - zip -r project-jikji *
-  - mkdir -p deploy
-  - mv project-jikji.zip deploy/project-jikji.zip
+  - mkdir -p before-deploy
+  - cp scripts/*.sh before-deploy/
+  - cp appspec.yml before-deploy/
+  - cp build/libs/*.jar before-deploy/
+  - cp -r /frontend /before-deploy
+  - cd before-deploy && zip -r before-deploy
+  - cd ../ && mkdir -p deploy
+  - mv before-deploy/before-deploy.zip deploy/project-jikji.zip
 
 deploy:
   - provider: s3
