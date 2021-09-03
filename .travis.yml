@@ -10,7 +10,9 @@ stages:
 jobs:
   include:
   - stage: build
-    - branch: develop
+    - branches:
+      only: 
+        - develop
       language: java
       jdk: openjdk11
       cache:
@@ -21,7 +23,9 @@ jobs:
         - chmod +x gradlew
       script: 
         - ./gradlew clean build
-    - branch: develop
+    - branches:
+      only: 
+        - develop
       language: node_js
       node_js: 14
       cache: npm
