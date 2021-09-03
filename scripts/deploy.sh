@@ -32,21 +32,6 @@ nohup java -jar $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
 
 echo "> 리액트 프로젝트 배포 시작"
 
-echo "> frontend 폴더 이동"
-cd $REPOSITORY/zip/frontend
-
-echo "> nvm 설치"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-
-echo "> nvm 활성화"
-. ~/.nvm/nvm.sh
-
-echo "> npm 명령어 설치"
-nvm install node
-
-echo "> 패키지 설치"
-npm install
-
-echo "> npm 빌드"
-npm run build:dev
+echo "> nginx 재시작"
+sudo service nginx restart
 
