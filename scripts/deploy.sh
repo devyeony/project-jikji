@@ -35,6 +35,9 @@ echo "> 리액트 프로젝트 배포 시작"
 echo "> frontend 폴더 이동"
 cd $REPOSITORY/zip/frontend
 
+echo "> npm 명령어 설치"
+nvm install 14
+
 echo "> 패키지 설치"
 npm install
 
