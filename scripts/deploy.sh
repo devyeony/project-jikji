@@ -30,8 +30,6 @@ echo "> $JAR_NAME 실행"
 
 nohup java -jar $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
 
-echo "> 리액트 프로젝트 배포 시작"
-
 echo "> nginx 재시작"
 sudo service nginx restart
 
