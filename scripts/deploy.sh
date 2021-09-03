@@ -35,8 +35,14 @@ echo "> 리액트 프로젝트 배포 시작"
 echo "> frontend 폴더 이동"
 cd $REPOSITORY/zip/frontend
 
+echo "> nvm 설치"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+
+echo "> nvm 활성화"
+. ~/.nvm/nvm.sh
+
 echo "> npm 명령어 설치"
-nvm install 14
+nvm install node
 
 echo "> 패키지 설치"
 npm install
