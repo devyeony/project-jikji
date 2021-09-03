@@ -2,13 +2,20 @@ branches:
   only: 
     - develop
 
+stages:
+  - backend
+  - frontend
+  - before_deploy
+  - deploy
+
 jobs:
   include:
-  - language: java
-    jdk: openjdk11
+  - stage: backend
     branches:
       only: 
         - develop
+    language: java
+    jdk: openjdk11
     cache:
       directories:
         - $HOME/.gradle/caches/
@@ -17,11 +24,12 @@ jobs:
       - chmod +x gradlew
     script: 
       - ./gradlew clean build
-  - language: node_js
-    node_js: 14
+  - stage: frontend
     branches:
       only: 
         - develop
+    language: node_js
+    node_js: 14
     cache: npm
     before_script:
       - cd frontend
@@ -30,41 +38,41 @@ jobs:
       - npm run build:dev
       - rm -rf node_modules
       - cd ..
-
-before_deploy:
-  - mkdir -p before-deploy
-  - cp scripts/*.sh before-deploy/
-  - cp appspec.yml before-deploy/
-  - cp build/libs/*.jar before-deploy/
-  - cp -r frontend before-deploy/
-  - cd before-deploy && zip -r before-deploy
-  - cd ../ && mkdir -p deploy
-  - mv before-deploy/before-deploy.zip deploy/project-jikji.zip
-
-deploy:
-  - provider: s3
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: $AWS_SECRET_KEY
-    bucket: project-jikji-build
-    region: ap-northeast-2
-    skip_cleanup: true
-    acl: private
-    local_dir: deploy
-    wait-until-deployed: true
-    on: 
-      branch: develop
-  - provider: codedeploy
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: $AWS_SECRET_KEY
-    bucket: project-jikji-build
-    key: project-jikji.zip
-    bundle_type: zip
-    application: project-jikji
-    deployment_group: project-jikji-group
-    region: ap-northeast-2
-    wait-until-deployed: true
-    on: 
-      branch: develop
+  - stage: before_deploy
+    before_deploy:
+    - mkdir -p before-deploy
+    - cp scripts/*.sh before-deploy/
+    - cp appspec.yml before-deploy/
+    - cp build/libs/*.jar before-deploy/
+    - cp -r frontend before-deploy/
+    - cd before-deploy && zip -r before-deploy.zip
+    - cd ../ && mkdir -p deploy
+    - mv before-deploy/before-deploy.zip deploy/project-jikji.zip
+  - stage: deploy
+    deploy:
+    - provider: s3
+      access_key_id: $AWS_ACCESS_KEY
+      secret_access_key: $AWS_SECRET_KEY
+      bucket: project-jikji-build
+      region: ap-northeast-2
+      skip_cleanup: true
+      acl: private
+      local_dir: deploy
+      wait-until-deployed: true
+      on: 
+        branch: develop
+    - provider: codedeploy
+      access_key_id: $AWS_ACCESS_KEY
+      secret_access_key: $AWS_SECRET_KEY
+      bucket: project-jikji-build
+      key: project-jikji.zip
+      bundle_type: zip
+      application: project-jikji
+      deployment_group: project-jikji-group
+      region: ap-northeast-2
+      wait-until-deployed: true
+      on: 
+        branch: develop
 
 notifications:
   slack:
