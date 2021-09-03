@@ -1,11 +1,10 @@
-branches:
-  only: 
-    - develop
-
 jobs:
   include:
   - language: java
     jdk: openjdk11
+    branches:
+      only: 
+        - develop
     cache:
       directories:
         - $HOME/.gradle/caches/
@@ -16,6 +15,9 @@ jobs:
       - ./gradlew clean build
   - language: node_js
     node_js: 14
+    branches:
+      only: 
+        - develop
     cache: npm
     before_script:
       - cd frontend
@@ -37,6 +39,18 @@ deploy:
     skip_cleanup: true
     acl: private
     local_dir: deploy
+    wait-until-deployed: true
+    on: 
+      branch: develop
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: project-jikji-build
+    key: project-jikji.zip
+    bundle_type: zip
+    application: project-jikji
+    deployment_group: project-jikji-group
+    region: ap-northeast-2
     wait-until-deployed: true
     on: 
       branch: develop
