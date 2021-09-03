@@ -23,9 +23,9 @@ jobs:
       only: 
         - develop
     cache: npm
-    before_script:
+    install:
       - cd frontend
-      - npm install
+      - travis_wait npm install
     script: 
       - npm run build:dev
 
