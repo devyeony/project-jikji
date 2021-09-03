@@ -6,6 +6,9 @@ jobs:
   include:
   - language: java
     jdk: openjdk11
+    branches:
+      only: 
+        - develop
     cache:
       directories:
         - $HOME/.gradle/caches/
@@ -16,6 +19,9 @@ jobs:
       - ./gradlew clean build
   - language: node_js
     node_js: 14
+    branches:
+      only: 
+        - develop
     cache: npm
     before_script:
       - cd frontend
@@ -24,6 +30,7 @@ jobs:
       - npm run build:dev
 
 before_deploy:
+  - rm -rf node_modules
   - zip -r project-jikji *
   - mkdir -p deploy
   - mv project-jikji.zip deploy/project-jikji.zip
