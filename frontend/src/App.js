@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 import './App.css';
 import { NavLink } from 'react-bootstrap';
 import Newbook from './Newbook.js';
-// import axios from 'axios';
+import axios from 'axios';
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -14,6 +14,10 @@ dotenv.config();
 function App() {
 
   let[books, changeBooks] = useState(Newbook);
+  const tests = axios.get(process.env.REACT_APP_API_URL+'/hello');
+  console.log("배포 테스트");
+  console.log(tests);
+  console.log(tests.data);
 
   return (
     <div className="App">
