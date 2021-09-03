@@ -23,6 +23,23 @@ jobs:
     script: 
       - npm run build:dev
 
+before_deploy:
+  - zip -r project-jikji *
+  - mkdir -p deploy
+  - mv project-jikji.zip deploy/project-jikji.zip
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: project-jikji-build
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private
+    local_dir: deploy
+    wait-until-deployed: true
+    on: all_branches: true
+
 notifications:
   slack:
     secure: R2JDrNxTqNl4HLaD0PCKsUBuFM3d9Uc6kA+QKWKljrBVwSNQygur+yZvvQonj9qx7lK4ghikkRtzbsc/CAuap7zNzI/GR9s47vUWk7Az+xPO1YGWcAg0B/7L/qJBiSoB7Y/eMBOrWVc0qr+YoT7XwFoH6GHWlFz+7sIJrZOXAOM6akMO+k+oHB0Qvr6K83p9MVOApOSf5RdlTa5AFu7tSm9sFCHJdRg6BQ7Y5/IHKN3BDCf53avoweCdSISYYVtOfHHQrVdwVIMqgAhv+4EgtzLRVXSPldU/FqdT5JiiRrXCBkGRGcq9RFmxJIpf0VoJXJmlOXN1qhY+kTqtPaHxM3YRZpAIVu9kQm2FuxC1NNEtaOjmudyydBPXPFIVpS3ItCuav0uTsomKd78BQ/6QqKv5wCSkoUc7tYd02JU7WGOeG4GUGxdDXqZV8mwEBo5hDo+bygFsaOuFVTO9tGBmZ0tyolSfisR0+y8e7KYAIViPW5jw6nESirfdutx9I05MvUPdZRT9g/lvjnI9LQwQtWXJe8BPzohGkW1R3MW7usgP0TW3mMfLFix215dZqclYvAhas29V4DGkc+NKbK0MaN74yjz+MqGDH1BAtEFG6ttN1H6dMpnpZtJ7cbSFiFg9vP5/8vt1uN9/xAC2m3y+Ecs4dUaXdtut2YQCm0i+4wg=
