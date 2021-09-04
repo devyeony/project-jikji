@@ -2,26 +2,70 @@ branches:
   only: 
     - develop
 
-jobs:
-  include:
-  - language: java
-    jdk: openjdk11
-    cache:
+language: java
+
+jdk:
+  - openjdk11
+
+before_install:
+  - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+  - . ~/.nvm/nvm.sh
+  - nvm install node
+
+cache:
       directories:
+        - $HOME/.npm
         - $HOME/.gradle/caches/
         - $HOME/.gradle/wrapper/
-    install:
-      - chmod +x gradlew
-    script: 
-      - ./gradlew clean build
-  - language: node_js
-    node_js: 14
-    cache: npm
-    before_script:
-      - cd frontend
-      - npm install
-    script: 
-      - npm run build:dev
+
+install:
+  - cd backend
+  - chmod +x gradlew
+
+before_script:
+  - cd .. && cd frontend
+  - npm install
+
+script: 
+   - npm run build:dev
+   - cd .. && cd backend
+   - ./gradlew clean build    
+   - cd ..
+
+before_deploy:
+  - mkdir -p before-deploy
+  - cp scripts/*.sh before-deploy/
+  - cp appspec.yml before-deploy/
+  - cp backend/build/libs/*.jar before-deploy/
+  - cp -r frontend/build before-deploy/build
+  - cd before-deploy && zip -r before-deploy *
+  - cd ../ && mkdir -p deploy
+  - mv before-deploy/before-deploy.zip deploy/project-jikji.zip
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: project-jikji-build
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private
+    local_dir: deploy
+    wait-until-deployed: true
+    on: 
+      branch: develop
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: project-jikji-build
+    key: project-jikji.zip
+    bundle_type: zip
+    application: project-jikji
+    deployment_group: project-jikji-group
+    region: ap-northeast-2
+    wait-until-deployed: true
+    on: 
+      branch: develop
 
 notifications:
   slack:
