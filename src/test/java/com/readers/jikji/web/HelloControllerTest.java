@@ -17,7 +17,7 @@ public class HelloControllerTest {
 
     @Test
     public void hello가_리턴된다() throws Exception {
-        String hello = "hellotest";
+        String hello = "hello";
 
         mvc.perform(get("/hello")) //MockMvc를 통해 /hello 주소로 HTTP GET 요청
                         .andExpect(status().isOk()) //상태 검증
