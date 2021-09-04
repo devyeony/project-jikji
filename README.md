@@ -1,4 +1,5 @@
-# 프로젝트 직지 (Project Jikji)
+# 프로젝트 직지 (Project Jikji) 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c4f8fb60-f6c2-4120-8cfc-21653f5b51e1/deploy-status)](https://app.netlify.com/sites/project-jikji/deploys)
 > 📚저작권 없는 무료 전자책📖을 한국어 번역으로 만나보세요! [프로젝트 구텐베르크](https://www.gutenberg.org/) 의 한국어 번역 플랫폼✨
 
 [대표 이미지]
