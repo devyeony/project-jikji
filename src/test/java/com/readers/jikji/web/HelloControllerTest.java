@@ -16,7 +16,7 @@ public class HelloControllerTest {
     private MockMvc mvc; //웹 API 테스트(HTTP GET, POST 등)
 
     @Test
-    public void hello가_리턴된다() throws Exception {
+    public void hellotest가_리턴된다() throws Exception {
         String hello = "hello";
 
         mvc.perform(get("/hellotest")) //MockMvc를 통해 /hello 주소로 HTTP GET 요청
