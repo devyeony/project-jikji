@@ -7,6 +7,7 @@
 ## 👉 URL
 
 - [https://project-jikji.netlify.app/](https://project-jikji.netlify.app/)
+- API Server - [https://project-jikji-api.herokuapp.com/](https://project-jikji-api.herokuapp.com/)
 
 ## ❤️ Member
 **더 리더스( The Leaders / The Readers )** 팀원들
