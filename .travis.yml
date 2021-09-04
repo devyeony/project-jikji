@@ -19,10 +19,11 @@ cache:
         - $HOME/.gradle/wrapper/
 
 install:
+  - cd backend
   - chmod +x gradlew
 
 before_script:
-  - cd frontend
+  - cd .. && cd frontend
   - npm install
 
 script: 
