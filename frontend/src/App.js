@@ -88,7 +88,8 @@ function App() {
       <div className="footer">
         <div className="container-fluid">
           <div className="footer-char">
-            Copyright (c) 2021 Yeonhee Kim &amp; Minseo Gang
+            Copyright (c) 2021 <a href="https://github.com/devyeony">Yeonhee Kim</a>
+            {' '}&amp;{' '}<a href="https://github.com/Minseo-Gang">Minseo Gang</a>
           </div>
         </div>
       </div>

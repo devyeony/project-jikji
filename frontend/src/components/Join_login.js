@@ -2,7 +2,7 @@ import React from 'react';
 import './Join_login.css';
 import { Button } from 'react-bootstrap';
 
-function Join() {
+function Join_login() {
     return (
         <div className="container-fluid">
             <div className="row">
@@ -15,4 +15,4 @@ function Join() {
     );
 }
 
-export default Join;
+export default Join_login;
