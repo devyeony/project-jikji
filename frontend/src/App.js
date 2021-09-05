@@ -31,7 +31,6 @@ function App() {
 				    </div>
 			    </div>
 		  </div>
-
       <nav className="nav-menu">
           <div className="container-fluid">
             <div className="navbar-header">
@@ -86,12 +85,20 @@ function App() {
           </div>
           <hr />
       </div>
+      <div className="footer">
+        <div className="container-fluid">
+          <div className="footer-char">
+            Copyright (c) 2021 Yeonhee Kim &amp; Minseo Gang
+          </div>
+        </div>
+      </div>
       </Route>
       <Route path="/join_login"><Join_login /></Route>
       <Route path="/viewer"><Viewer /></Route>
       <Route path="/mypage"><Mypage /></Route>
       <Route path="/search"><Search /></Route>
       <Route path="/statistics"><Statistics /></Route>
+      
     </div> // App
   );
 }

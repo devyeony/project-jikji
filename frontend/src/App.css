@@ -22,6 +22,7 @@
   }
 
   .nav-menu {
+    position: sticky;
     background-color: #120046;
     z-index: 99;
     padding: 0;
@@ -101,4 +102,17 @@
     margin-top: 1rem;
     margin-right: 2rem;
     text-decoration: none;
+  }
+
+  .footer {
+    margin-top: 2rem;
+    background-color: #120046;
+    color: #fff;
+    height: 3.8rem;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .footer-char {
+    padding: 1rem 1rem;
   }
