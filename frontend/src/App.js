@@ -1,13 +1,11 @@
 /*eslint-disable*/
-
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { NavLink } from 'react-bootstrap';
 import Newbook from './Newbook.js';
 import Likebook from './Likebook.js';
-import { Link, Route, Switch } from 'react-router-dom';
-import Join from './components/Join';
-import Login from './components/Login';
+import { Link, Route } from 'react-router-dom';
+import Join_login from './components/Join_login';
 import Mypage from './components/Mypage';
 import Search from './components/Search';
 import Viewer from './components/Viewer';
@@ -26,12 +24,11 @@ function App() {
       <div className="topbar">
 			    <div className="container-fluid">
 				    <div className="social-links">
-					    <NavLink><Link to="/login">로그인</Link></NavLink> 
-					    <NavLink><Link to="/join">회원가입</Link></NavLink>
+					    <NavLink><Link to="/join_login">로그인</Link></NavLink> 
+					    <NavLink><Link to="/join_login">회원가입</Link></NavLink>
 				    </div>
 			    </div>
 		  </div>
-
       <nav className="nav-menu">
           <div className="container-fluid">
             <div className="navbar-header">
@@ -86,13 +83,21 @@ function App() {
           </div>
           <hr />
       </div>
+      <div className="footer">
+        <div className="container-fluid">
+          <div className="footer-char">
+            Copyright (c) 2021 <a href="https://github.com/devyeony">Yeonhee Kim</a>
+            {' '}&amp;{' '}<a href="https://github.com/Minseo-Gang">Minseo Gang</a>
+          </div>
+        </div>
+      </div>
       </Route>
-      <Route path="/join" component={Join}><Join /></Route>
-      <Route path="/login"><Login /></Route>
+      <Route path="/join_login"><Join_login /></Route>
       <Route path="/viewer"><Viewer /></Route>
       <Route path="/mypage"><Mypage /></Route>
       <Route path="/search"><Search /></Route>
       <Route path="/statistics"><Statistics /></Route>
+      
     </div> // App
   );
 }
@@ -121,7 +126,7 @@ function App() {
   };
   
   test = async () => {
-    const tests = await axios.get('http://ec2-15-165-84-47.ap-northeast-2.compute.amazonaws.com/api/hello');
+    const tests = await axios.get('process.env.REACT_APP_API_URL+'/hello');
     console.log(tests);
     console.log(tests.data);
   }
