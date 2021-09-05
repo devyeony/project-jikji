@@ -12,7 +12,7 @@ import Mypage from './components/Mypage';
 import Search from './components/Search';
 import Viewer from './components/Viewer';
 import Statistics from './components/Statistics';
-//import axios from 'axios';
+// import axios from 'axios';
 import dotenv from "dotenv";
 dotenv.config();
 
