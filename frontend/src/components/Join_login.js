@@ -1,5 +1,5 @@
 import React from 'react';
-import './Join.css';
+import './Join_login.css';
 import { Button } from 'react-bootstrap';
 
 function Join() {
