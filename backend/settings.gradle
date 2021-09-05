@@ -1,1 +1,6 @@
 rootProject.name = 'project-jikji'
+include 'jikji-core'
+include 'jikji-common'
+include 'jikji-core'
+include 'jikji-server'
+
