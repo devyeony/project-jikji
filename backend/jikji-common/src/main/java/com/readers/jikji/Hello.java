@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class Hello {
-    private String hello = "hello";
+    private String hello = "안녕";
 }
