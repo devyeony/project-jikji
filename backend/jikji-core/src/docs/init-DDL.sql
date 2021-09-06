@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `jikji`.`book_metadata` (
 CREATE TABLE IF NOT EXISTS `jikji`.`book_original` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `book_metadata_id` INT(10) NOT NULL,
-  `content` INT(10) NOT NULL,
+  `content` TEXT NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`book_metadata_id`) REFERENCES `jikji`.`book_metadata` (`id`) ON DELETE CASCADE);
 
