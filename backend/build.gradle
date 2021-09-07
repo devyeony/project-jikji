@@ -57,3 +57,7 @@ dependencies {
 	implementation project(':jikji-api')
 	implementation project(':jikji-web')
 }
+
+jar {
+	enabled = false
+}
