@@ -12,9 +12,9 @@ import java.util.List;
 public class MemberController {
     @Autowired private MemberService memberService;
 
-    @GetMapping("/hello")
+    @GetMapping(value="/hello", produces = "application/json; charset=utf8")
     public String hello(){
-        return "hello world";
+        return "안녕";
     }
 
     @GetMapping(value = "/mem_save")
