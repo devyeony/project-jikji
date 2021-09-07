@@ -39,3 +39,6 @@ out/
 ### AWS ###
 *.pem
 *.ppk
+
+### 환경변수 ###
+application.yml

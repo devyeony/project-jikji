@@ -1,5 +1,5 @@
-rootProject.name = 'project-jikji'
-include 'jikji-core'
+rootProject.name = 'jikji'
 include 'jikji-common'
-include 'jikji-server'
+include 'jikji-api'
+include 'jikji-web'
 
