@@ -1,8 +1,46 @@
-.btn-info {
-    margin: 30px;
+.join_login {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #eeeeee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.flatform Button{
+.white_box {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.025);
+    width: 30rem;
+    height: 20rem;
+    background-color: #fff;
+    border-radius: 2px;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    background-color: #120046;
+    width: 30rem;
+    height: 3rem;
+    color: #fff;
+    font-size: 18px;
+    padding: 0.7rem 1rem;
+}
+
+.list {
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-info {
+    margin: 30px;
+    
+}
+
+.flatform Button {
     margin-bottom: 10px;
     margin-left: 30px;
     color: #fff;
