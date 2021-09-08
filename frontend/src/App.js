@@ -37,7 +37,7 @@ function App() {
             <div className="row">
               {
                 newbook.map((a, i)=>{
-                  return <Updatebk newbook={newbook[i]} />
+                  return <Updatebk newbook={newbook[i]} key={i} />
                 })
               }
             </div>
@@ -54,7 +54,7 @@ function App() {
             <div className="row">
               {
                 likebook.map((a, i)=>{
-                  return <Likebk likebook={likebook[i]} />
+                  return <Likebk likebook={likebook[i]} key={i} />
                 })
               }
             </div>

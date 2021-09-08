@@ -9,8 +9,7 @@ function Header() {
       <div className="topbar">
 		    <div className="container-fluid">
 				  <div className="social-links">
-					  <Link to="/join_login">로그인</Link>
-					  <Link to="/join_login">회원가입</Link>
+					  <Link to="/join_login">로그인{' '}&amp;{' '}회원가입</Link>
 				  </div>
 			  </div>
 		  </div>

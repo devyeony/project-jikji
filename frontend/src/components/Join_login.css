@@ -18,7 +18,12 @@
     background-color: #fff;
     border-radius: 2px;
     justify-content: center;
+    text-align: center;
+}
+
+.white_box list {
     align-items: center;
+    justify-content: center;
 }
 
 .title {
@@ -30,19 +35,32 @@
     padding: 0.7rem 1rem;
 }
 
-.list {
-    align-items: center;
-    justify-content: center;
+.btn-outline-info {
+    margin: 30px;
 }
 
-.btn-info {
+.btn-outline-primary {
     margin: 30px;
-    
+}
+
+.list {
+    margin-bottom: 1rem;
+}
+
+.flatform .naver {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.flatform .google {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
 }
 
 .flatform Button {
     margin-bottom: 10px;
-    margin-left: 30px;
     color: #fff;
     position: relative;
     border: 0;
