@@ -1,10 +1,10 @@
 /*eslint-disable*/
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import './App.css';
-import { NavLink } from 'react-bootstrap';
 import Newbook from './Newbook.js';
 import Likebook from './Likebook.js';
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
+import Header from './components/Header';
 import Join_login from './components/Join_login';
 import Mypage from './components/Mypage';
 import Search from './components/Search';
@@ -21,30 +21,8 @@ function App() {
 
   return (
     <div className="App">
-      <div className="topbar">
-			    <div className="container-fluid">
-				    <div className="social-links">
-					    <NavLink><Link to="/join_login">로그인</Link></NavLink> 
-					    <NavLink><Link to="/join_login">회원가입</Link></NavLink>
-				    </div>
-			    </div>
-		  </div>
-      <nav className="nav-menu">
-          <div className="container-fluid">
-            <div className="navbar-header">
-              <div className="navbar-brand">
-                <NavLink><i className="fas fa-book-reader"></i>
-                    <Link exact to="/">JIKJI</Link></NavLink>
-              </div>
-              <ul className="navbar-nav">
-                <li><NavLink><Link to="/viewer">VIEWER</Link></NavLink></li>
-                <li><NavLink><Link to="/mypage">마이페이지</Link></NavLink></li>
-                <li><NavLink><Link to="/search">검색 및 조회</Link></NavLink></li>
-                <li><NavLink><Link to="/statistics">통계페이지</Link></NavLink></li>
-              </ul>
-            </div>
-          </div>
-      </nav>
+      <Header />
+      <Switch>
       <Route exact path="/">
       <div className="contents">
           <br />
@@ -59,7 +37,7 @@ function App() {
             <div className="row">
               {
                 newbook.map((a, i)=>{
-                  return <Updatebk newbook={newbook[i]} />
+                  return <Updatebk newbook={newbook[i]} key={i} />
                 })
               }
             </div>
@@ -76,7 +54,7 @@ function App() {
             <div className="row">
               {
                 likebook.map((a, i)=>{
-                  return <Likebk likebook={likebook[i]} />
+                  return <Likebk likebook={likebook[i]} key={i} />
                 })
               }
             </div>
@@ -92,11 +70,12 @@ function App() {
         </div>
       </div>
       </Route>
-      <Route path="/join_login"><Join_login /></Route>
-      <Route path="/viewer"><Viewer /></Route>
-      <Route path="/mypage"><Mypage /></Route>
-      <Route path="/search"><Search /></Route>
-      <Route path="/statistics"><Statistics /></Route>
+        <Route path="/join_login"><Join_login /></Route>
+        <Route path="/viewer"><Viewer /></Route>
+        <Route path="/mypage"><Mypage /></Route>
+        <Route path="/search"><Search /></Route>
+        <Route path="/statistics"><Statistics /></Route>
+      </Switch>
       
     </div> // App
   );
