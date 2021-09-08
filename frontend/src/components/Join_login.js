@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Join_login.css';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import Naverlogo from './naverlogo.JPG';
 import Googlelogo from './googlelogo.JPG';
 
