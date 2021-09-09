@@ -41,7 +41,7 @@ function Search() {
                     <Dropdown.Item href="#/action-3">책내용</Dropdown.Item>
                 </DropdownButton>
                 <FormControl placeholder="검색어를 입력하세요."/>
-                <Button variant="primary">검색</Button>
+                <Button style={{ backgroundColor: '#120046', border:'0', width:'70px', marginLeft:'20px' }}>검색</Button>
             </div>
 
             <div className="tabs">
