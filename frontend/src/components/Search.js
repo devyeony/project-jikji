@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Search.css';
 import Author from './Author.js';
 import Book from './Book.js';
-import { DropdownButton, Dropdown, Button, FormControl } from 'react-bootstrap';
+import { DropdownButton, Dropdown, Button, FormControl, Tabs, Tab } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 function Search() {
@@ -43,6 +43,23 @@ function Search() {
                 <FormControl placeholder="검색어를 입력하세요."/>
                 <Button variant="primary">검색</Button>
             </div>
+
+            <div className="tabs">
+                
+                <Tabs defaultActiveKey="update" id="uncontrolled-tab-example" className="mb-3">
+                    <Tab eventKey="update" className="update" title="업데이트순">
+                        업데이트!
+                    </Tab>
+                    <Tab eventKey="score" className="score" title="평점순">
+                        평점!
+                    </Tab>
+                    <Tab eventKey="like" className="like" title="좋아요순">
+                        좋아요!
+                    </Tab>
+                </Tabs>
+                
+            </div>
+           
         </div>
     </>
     );
