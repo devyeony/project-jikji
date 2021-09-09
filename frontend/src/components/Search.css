@@ -19,3 +19,29 @@
     margin-right:20px;
     flex-direction: row;
 }
+
+.row {
+    margin : 10px;
+    position: flex;
+    text-align: center;
+}
+
+.dropdown {
+    width: 120px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.form-control {
+    padding: 7px;
+    font-size: 16px;
+    width: 70%;
+    border: 1px solid gray;
+}
+
+.btn-primary {
+    margin-left: 20px;
+    width: 70px;
+    background-color: #120046;
+    border : 0;
+}
