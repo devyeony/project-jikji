@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import React, { useState } from 'react';
 import './Search.css';
 import Author from './Author.js';
