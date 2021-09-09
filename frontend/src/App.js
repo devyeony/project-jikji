@@ -1,5 +1,5 @@
 /*eslint-disable*/
-import React, { useState, Suspense, lazy } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Newbook from './Newbook.js';
 import Likebook from './Likebook.js';
@@ -27,7 +27,7 @@ function App() {
       <div className="contents">
           <br />
           <div className="mainbook">
-            <h4 style={{paddingLeft:'10px',fontWeight:'bold',fontSize:'30px'}}>
+            <h4 style={{paddingLeft:'10px', fontWeight:'bold', fontSize:'30px'}}>
               새로 업데이트 된 책
             </h4>
             <Link to="/search">+더보기</Link>
@@ -83,7 +83,7 @@ function App() {
 
   function Updatebk(props) {
     return(
-      <div className="col-md-3">
+      <div className="col-md-3" style={{textAlign:'center'}} >
         <img src={props.newbook.img} alt="book" width="40%"/>
         <h5 className="book">{props.newbook.title}</h5>
       </div>
@@ -92,7 +92,7 @@ function App() {
 
   function Likebk(props) {
     return(
-      <div className="col-md-3">
+      <div className="col-md-3" style={{textAlign:'center'}} >
         <img src={props.likebook.img} alt="book" width="40%"/>
         <h5 className="book">{props.likebook.title}</h5>
       </div>

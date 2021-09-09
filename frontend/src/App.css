@@ -1,12 +1,11 @@
   .book {
     margin-top: 0.5rem;
-    text-align: justify;
+    text-align: center;
   }
 
   .mainbook {
     display: flex;
     justify-content: space-between;
-   
   }
 
   .mainbook a {
