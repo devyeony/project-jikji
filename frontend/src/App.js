@@ -10,6 +10,7 @@ import Mypage from './components/Mypage';
 import Search from './components/Search';
 import Viewer from './components/Viewer';
 import Statistics from './components/Statistics';
+import SearchResult from './components/SearchResult';
 // import axios from 'axios';
 import dotenv from "dotenv";
 dotenv.config();
@@ -75,6 +76,7 @@ function App() {
         <Route path="/mypage"><Mypage /></Route>
         <Route path="/search"><Search /></Route>
         <Route path="/statistics"><Statistics /></Route>
+        <Route path="/searchResult"><SearchResult /></Route>
       </Switch>
       
     </div> // App

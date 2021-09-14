@@ -1,0 +1,12 @@
+.searchWord {
+    margin-left: 10px;
+    font-size: 25px;
+    font-weight: initial;
+    font-style: italic;
+    color:#ABABAB;
+}
+
+.bookInfo {
+    font-size: 20px;
+    margin-top: 1.5rem;
+}
