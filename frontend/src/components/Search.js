@@ -1,93 +1,100 @@
 /*eslint-disable*/
 import React, { useState } from 'react';
 import './Search.css';
-import Author from './Author.js';
-import Book from './Book.js';
-import { DropdownButton, Dropdown, Button, FormControl, Tabs, Tab } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Tabs, Tab } from 'react-bootstrap';
+import UpdateBook from './UpdateBook.js';
+import ScoreBook from './ScoreBook.js';
+import LikeBook from './LikeBook.js';
+import IndexSearchBar from './IndexSearchBar.js';
 
 function Search() {
 
-    let[name, chName] = useState(Author);
-    let[title, chTitle] = useState(Book);
+    let[update, chUpdate] = useState(UpdateBook);
+    let[score, chScore] = useState(ScoreBook);
+    let[like, chLike] = useState(LikeBook);
     
     return (
-    <>
-        <div className="author">
-            작가 검색{' '}:{' '}
-            {
-                name.map((a, i)=>{
-                    return(
-                        <AuthorName name={name[i]} key={i}/>
-                    );
-                })
-            }
-        </div>
-        <div className="book">
-            책 검색{' '}:{' '}
-            {
-                title.map((a, i)=>{
-                    return(
-                        <BookName title={title[i]} key={i}/>
-                    );
-                })
-            }
-        </div>
-        <br />
+        <>
+        <IndexSearchBar />
         <div className="container">
-            <div className="row">
-                <DropdownButton variant="outline-secondary" title="검색항목">
-                    <Dropdown.Item href="#/action-1">책제목</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">작가명</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">책내용</Dropdown.Item>
-                </DropdownButton>
-                <FormControl placeholder="검색어를 입력하세요."/>
-                <Button style={{ backgroundColor: '#120046', border:'0', width:'70px', marginLeft:'20px' }}>검색</Button>
-            </div>
-
-            <div className="tabs">
-                
-                <Tabs defaultActiveKey="update" id="uncontrolled-tab-example" className="mb-3">
-                    <Tab eventKey="update" className="update" title="업데이트순">
-                        업데이트!
-                    </Tab>
-                    <Tab eventKey="score" className="score" title="평점순">
-                        평점!
-                    </Tab>
-                    <Tab eventKey="like" className="like" title="좋아요순">
-                        좋아요!
-                    </Tab>
-                </Tabs>
-                
-            </div>
-           
+        <div className="row">
+        <div className="tabs">
+            <Tabs defaultActiveKey="update" id="uncontrolled-tab-example" className="mb-3">
+                <Tab eventKey="update" className="update" title="업데이트순">
+                    <div className="row">
+                        {
+                            update.map((a, i)=>{
+                                return (
+                                    <UpdateBooks update={update[i]} key={i}/>
+                                );
+                            })
+                        }
+                    </div>
+                </Tab>
+                <Tab eventKey="score" className="score" title="평점순">
+                    <div className="row">
+                        {
+                            score.map((a, i)=>{
+                                return (
+                                    <ScoreBooks score={score[i]} key={i}/>
+                                );
+                            })
+                        }
+                    </div>
+                </Tab>
+                <Tab eventKey="like" className="like" title="좋아요순">
+                    <div className="row">
+                        {
+                            like.map((a, i)=>{
+                                return (
+                                    <LikeBooks like={like[i]} key={i}/>
+                                );
+                            })
+                        }
+                    </div>
+                </Tab>
+            </Tabs>
         </div>
-    </>
+        </div>
+        </div>
+        </>
     );
 }
 
-function AuthorName(props) {
+function UpdateBooks(props) {
     return(
-        <>
-        <span className="authorName">
-            <Link to={props.name.link}>{props.name.list}</Link>
-        </span>
-        </>
-    )
+        <div className="col-md-3" style={{ textAlign:'center'}}>
+            <img src={props.update.img} alt="book" width="40%" />
+            <h5 className="updateBk">{props.update.title}</h5>
+            <h6 className="updateStar" style={{ fontSize:'23px', color:'#ADBB0C'}}>
+                {props.update.rating}</h6>
+            <br />
+        </div>
+    );
 }
 
-function BookName(props) {
+function ScoreBooks(props) {
     return(
-        <>
-        <span className="bookName">
-            <Link to={props.title.link}>{props.title.list}</Link>
-        </span>
-        </>
-    )
+        <div className="col-md-3" style={{ textAlign:'center'}}>
+            <img src={props.score.img} alt="book" width="40%" />
+            <h5 className="scoreBk">{props.score.title}</h5>
+            <h6 className="scoreStar" style={{ fontSize:'23px', color:'#ADBB0C'}}>
+                {props.score.rating}</h6>
+            <br />
+        </div>
+    );
 }
 
-
-
-
+function LikeBooks(props) {
+    return(
+        <div className="col-md-3" style={{ textAlign:'center'}}>
+            <img src={props.like.img} alt="book" width="40%" />
+            <h5 className="likeBk">{props.like.title}</h5>
+            <h6 className="likeStar" style={{ fontSize:'23px', color:'#f48fb1'}}>
+                {props.like.rating}</h6>
+            <br />
+        </div>
+    );
+}
 
 export default Search;
