@@ -1,0 +1,5 @@
+rootProject.name = 'jikji'
+include 'jikji-common'
+include 'jikji-api'
+include 'jikji-web'
+
