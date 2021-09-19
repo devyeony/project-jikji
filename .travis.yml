@@ -5,6 +5,7 @@ language: java
 jdk:
 - openjdk11
 before_install:
+- cd frontend
 - openssl aes-256-cbc -K $encrypted_4931efa05e37_key -iv $encrypted_4931efa05e37_iv
   -in env.tar.enc -out env.tar -d
 - tar xvf env.tar
@@ -17,7 +18,7 @@ cache:
   - "$HOME/.gradle/caches/"
   - "$HOME/.gradle/wrapper/"
 install:
-- cd backend
+- cd .. && cd backend
 - chmod +x gradlew
 before_script:
 - cd .. && cd frontend
