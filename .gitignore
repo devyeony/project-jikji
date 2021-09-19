@@ -42,3 +42,4 @@ out/
 
 ### 환경변수 ###
 application.yml
+frontend/env
