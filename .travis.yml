@@ -21,7 +21,7 @@ cache:
   - "$HOME/.gradle/caches/"
   - "$HOME/.gradle/wrapper/"
 install:
-- cd .. && cd backend
+- cd backend
 - chmod +x gradlew
 before_script:
 - cd .. && cd frontend
