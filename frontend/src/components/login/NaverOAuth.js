@@ -4,10 +4,8 @@ import {Button} from "react-bootstrap";
 // import axios from "axios";
 
 // const oauth = {
-//     // appUrl : process.env.REACT_APP_URL,
-//     // apiUrl : process.env.REACT_APP_API_URL,
-//     appUrl : "http://localhost:3000",
-//     apiUrl : "http://localhost:7000",
+//     appUrl : process.env.REACT_APP_URL,
+//     apiUrl : process.env.REACT_APP_API_URL,
 //     authPath : "/oauth/jwt",
 //     naverKey : process.env.REACT_APP_NAVER_KEY
 // }

@@ -4,10 +4,8 @@ import GoogleLogin from 'react-google-login';
 import axios from "axios";
 
 const oauth = {
-    // appUrl : process.env.REACT_APP_URL,
-    // apiUrl : process.env.REACT_APP_API_URL,
-    appUrl : "http://localhost:3000",
-    apiUrl : "http://localhost:7000",
+    appUrl : process.env.REACT_APP_URL,
+    apiUrl : process.env.REACT_APP_API_URL,
     authPath : "/oauth/jwt",
     googleKey : process.env.REACT_APP_GOOGLE_KEY
 }
