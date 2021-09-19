@@ -78,7 +78,6 @@ function App() {
         <Route path="/statistics"><Statistics /></Route>
         <Route path="/searchResult"><SearchResult /></Route>
       </Switch>
-      
     </div> // App
   );
 }

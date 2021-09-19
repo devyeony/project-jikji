@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Googlelogo from '../../assets/img/login/googlelogo.JPG';
+// import Googlelogo from '../../assets/img/login/googlelogo.JPG';
 import GoogleLogin from 'react-google-login';
 import axios from "axios";
 

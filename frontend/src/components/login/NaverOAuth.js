@@ -1,22 +1,22 @@
 import React, {Component} from "react";
 import Naverlogo from '../../assets/img/login/naverlogo.JPG';
 import {Button} from "react-bootstrap";
-import axios from "axios";
+// import axios from "axios";
 
-const oauth = {
-    // appUrl : process.env.REACT_APP_URL,
-    // apiUrl : process.env.REACT_APP_API_URL,
-    appUrl : "http://localhost:3000",
-    apiUrl : "http://localhost:7000",
-    authPath : "/oauth/jwt",
-    naverKey : process.env.REACT_APP_NAVER_KEY
-}
+// const oauth = {
+//     // appUrl : process.env.REACT_APP_URL,
+//     // apiUrl : process.env.REACT_APP_API_URL,
+//     appUrl : "http://localhost:3000",
+//     apiUrl : "http://localhost:7000",
+//     authPath : "/oauth/jwt",
+//     naverKey : process.env.REACT_APP_NAVER_KEY
+// }
 
-const config = {
-    headers: {
-        "Content-Type": "application/json; charset=utf-8",
-    },
-};
+// const config = {
+//     headers: {
+//         "Content-Type": "application/json; charset=utf-8",
+//     },
+// };
 
 class NaverOAuth extends Component {
     render() {
@@ -31,26 +31,26 @@ class NaverOAuth extends Component {
     }
 }
 
-const successNaverLogin = async (response) => {
-    console.log(response);
-    // let rData = await axios.post(
-    //     oauth.apiUrl + oauth.authPath + "/google",
-    //     JSON.stringify(response),
-    //     config
-    // );
-    // setItem(rData);
-};
-
-function setItem(rData){
-    if (rData.status === 200) {
-        //console.log(rData.data);
-        sessionStorage.setItem("userInfo", JSON.stringify(rData.data.userInfo));
-        localStorage.setItem("jwtToken", rData.data.jwtToken);
-    }
-}
-
-const failLogin = () => {
-    alert("로그인에 실패했습니다.");
-}
+// const successNaverLogin = async (response) => {
+//     console.log(response);
+//     // let rData = await axios.post(
+//     //     oauth.apiUrl + oauth.authPath + "/google",
+//     //     JSON.stringify(response),
+//     //     config
+//     // );
+//     // setItem(rData);
+// };
+//
+// function setItem(rData){
+//     if (rData.status === 200) {
+//         //console.log(rData.data);
+//         sessionStorage.setItem("userInfo", JSON.stringify(rData.data.userInfo));
+//         localStorage.setItem("jwtToken", rData.data.jwtToken);
+//     }
+// }
+//
+// const failLogin = () => {
+//     alert("로그인에 실패했습니다.");
+// }
 
 export default NaverOAuth;

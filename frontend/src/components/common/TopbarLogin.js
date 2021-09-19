@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 const oauth = {
     //appUrl : process.env.REACT_APP_URL,
@@ -14,21 +17,21 @@ class TopbarLogin extends Component {
         return(
             <div className="container-fluid">
                 <div className="social-links">
-                    <img src={userInfo.profile} width="25px" height="25px" />
+                    <img src={userInfo.profile} alt={"profile"} width="25px" height="25px" />
                     <span>&nbsp;{userInfo.name} 님, 환영합니다.&nbsp;&nbsp;</span>
-                    <a href="javascript:void(0);" onClick={logout}>로그아웃</a>
+                    <a href="#!" onClick={Logout}>로그아웃</a>
                 </div>
             </div>
         )
     }
 }
 
-const logout = () => {
+function Logout() {
     const result = window.confirm('로그아웃 하시겠습니까?');
     if(result){
         window.localStorage.clear();
         window.sessionStorage.clear();
-        document.cookie = "G_AUTHUSER_H" + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        cookies.remove('G_AUTHUSER_H');
         window.location.href = oauth.appUrl;
     }
 }
