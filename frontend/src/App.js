@@ -1,16 +1,16 @@
 /*eslint-disable*/
 import React, { useState } from 'react';
-import './App.css';
-import Newbook from './Newbook.js';
-import Likebook from './Likebook.js';
+import './assets/css/main/App.css';
+import Newbook from './assets/data/main/Newbook.js';
+import Likebook from './assets/data/main/Likebook.js';
 import { Link, Route, Switch } from 'react-router-dom';
-import Header from './components/Header';
-import Join_login from './components/Join_login';
-import Mypage from './components/Mypage';
-import Search from './components/Search';
-import Viewer from './components/Viewer';
-import Statistics from './components/Statistics';
-import SearchResult from './components/SearchResult';
+import Header from './views/common/Header';
+import Login from './views/login/Login';
+import Mypage from './views/mypage/Mypage';
+import Search from './views/search/Search';
+import Viewer from './views/viewer/Viewer';
+import Statistics from './views/statistics/Statistics';
+import SearchResult from './views/search/SearchResult';
 // import axios from 'axios';
 import dotenv from "dotenv";
 dotenv.config();
@@ -71,7 +71,7 @@ function App() {
         </div>
       </div>
       </Route>
-        <Route path="/join_login"><Join_login /></Route>
+        <Route path="/login"><Login /></Route>
         <Route path="/viewer"><Viewer /></Route>
         <Route path="/mypage"><Mypage /></Route>
         <Route path="/search"><Search /></Route>

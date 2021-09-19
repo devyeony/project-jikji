@@ -1,11 +1,11 @@
 /*eslint-disable*/
 import React, { useState } from 'react';
-import './Search.css';
+import '../../assets/css/search/Search.css';
 import { Tabs, Tab } from 'react-bootstrap';
-import UpdateBook from './UpdateBook.js';
-import ScoreBook from './ScoreBook.js';
-import LikeBook from './LikeBook.js';
-import IndexSearchBar from './IndexSearchBar.js';
+import UpdateBook from '../../assets/data/search/UpdateBook.js';
+import ScoreBook from '../../assets/data/search/ScoreBook.js';
+import LikeBook from '../../assets/data/search/LikeBook.js';
+import IndexSearchBar from '../../components/search/IndexSearchBar.js';
 
 function Search() {
 

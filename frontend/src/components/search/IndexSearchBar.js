@@ -1,11 +1,11 @@
 /*eslint-disable*/
 import React, { useState } from 'react';
-import './IndexSearchBar.css';
+import '../../assets/css/search/IndexSearchBar.css';
 import { DropdownButton, Dropdown, Button, FormControl } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
-import SearchResult from './SearchResult.js';
-import Author from './Author.js';
-import Book from './Book.js';
+import SearchResult from '../../views/search/SearchResult.js';
+import Author from '../../assets/data/search/Author.js';
+import Book from '../../assets/data/search/Book.js';
 
 function IndexSearchBar() {
 

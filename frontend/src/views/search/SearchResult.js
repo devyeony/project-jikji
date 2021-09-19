@@ -1,9 +1,9 @@
 /*eslint-disable*/
 import React, { useState } from 'react';
-import './SearchResult.css';
+import '../../assets/css/search/SearchResult.css';
 import { Pagination } from 'react-bootstrap';
-import ResultData from './ResultData';
-import IndexSearchBar from './IndexSearchBar';
+import ResultData from '../../assets/data/search/ResultData';
+import IndexSearchBar from '../../components/search/IndexSearchBar';
 
 function SearchResult() {
 
