@@ -10,7 +10,7 @@ buildscript {
 	}
 }
 
-allprojects {
+subprojects {
 	apply plugin: 'java'
 	apply plugin: 'eclipse'
 	apply plugin: 'idea'
@@ -39,8 +39,9 @@ allprojects {
 	}
 
 	dependencies {
-		implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 		implementation 'org.springframework.boot:spring-boot-starter-web'
+		implementation 'org.springframework.boot:spring-boot-starter-validation'
+
 		compileOnly 'org.projectlombok:lombok'
 		developmentOnly 'org.springframework.boot:spring-boot-devtools'
 		annotationProcessor 'org.projectlombok:lombok'
@@ -50,14 +51,4 @@ allprojects {
 	test {
 		useJUnitPlatform()
 	}
-}
-
-dependencies {
-	implementation project(':jikji-common')
-	implementation project(':jikji-api')
-	implementation project(':jikji-web')
-}
-
-jar {
-	enabled = false
 }
