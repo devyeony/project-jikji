@@ -3,6 +3,9 @@ import KakaoLogin from 'react-kakao-login';
 import KakaoLogo from '../../assets/img/login/kakaoLogo.png';
 import {Button} from "react-bootstrap";
 import axios from "axios";
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 const oauth = {
     appUrl: process.env.REACT_APP_URL,
@@ -62,6 +65,7 @@ function setItem(rData) {
         //console.log(rData.data);
         sessionStorage.setItem("userInfo", JSON.stringify(rData.data.userInfo));
         localStorage.setItem("jwtToken", rData.data.jwtToken);
+        cookies.remove('G_AUTHUSER_H');
         window.location.href = oauth.appUrl;
     }
 }

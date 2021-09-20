@@ -15,9 +15,6 @@ function Header() {
                 {
                     (function () {
                         if (window.localStorage.getItem('jwtToken') == null || window.sessionStorage.getItem('userInfo') == null) {
-                            window.localStorage.clear();
-                            window.sessionStorage.clear();
-                            cookies.remove('G_AUTHUSER_H');
                             return <Topbar/>;
                         } else {
                             return <TopbarLogin/>;
