@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../assets/css/login/Login.css';
-import NaverOAuth from "../../components/login/NaverOAuth";
 import GoogleOAuth from "../../components/login/GoogleOAuth";
+import KakaoOAuth from "../../components/login/KakaoOAuth";
 
 function Login() {
     return (
@@ -13,7 +13,7 @@ function Login() {
                             <div className="title"><i className="fas fa-book-reader"></i>로그인</div>
                         </div>
                         <div className="flatform">
-                            <NaverOAuth/>
+                            <KakaoOAuth/>
                             <GoogleOAuth/>
                         </div>
                     </div>

@@ -5,7 +5,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.readers.jikji.config.WebMvcMapping;
 import com.readers.jikji.config.jwt.JwtProperties;
 import com.readers.jikji.config.oauth.provider.GoogleUser;
-import com.readers.jikji.config.oauth.provider.NaverUser;
+import com.readers.jikji.config.oauth.provider.KakaoUser;
 import com.readers.jikji.config.oauth.provider.OAuthUserInfo;
 import com.readers.jikji.domain.user.*;
 import com.readers.jikji.dto.IAmResponse;
@@ -45,17 +45,17 @@ public class JwtCreateController {
         }
     }
 
-    @PostMapping("/jwt/naver")
-    public Map<String, Object> createNaverJwt(@RequestBody Map<String, Object> data) {
-        OAuthUserInfo naverUser =
-                new NaverUser((Map<String, Object>)data.get("profileObj"));
+    @PostMapping("/jwt/kakao")
+    public Map<String, Object> createKakaoJwt(@RequestBody Map<String, Object> data) {
+        OAuthUserInfo kakaoUser =
+                new KakaoUser((Map<String, Object>)data.get("profile"));
         User userEntity =
-                userService.findByUsername(naverUser.getProvider()+"_"+naverUser.getProviderId());
+                userService.findByUsername(kakaoUser.getProvider()+"_"+kakaoUser.getProviderId());
 
         if(userEntity == null) {
-            return handleNewUser(naverUser);
+            return handleNewUser(kakaoUser);
         } else{
-            return handleOldUser(naverUser, userEntity);
+            return handleOldUser(kakaoUser, userEntity);
         }
     }
 
@@ -76,11 +76,15 @@ public class JwtCreateController {
                 .role(Role.USER).build();
         userService.save(authority);
 
+        boolean isExistEmail = true;
+        if(userInfo.getEmail() == null){
+            isExistEmail = false;
+        }
         EmailNotification emailNotification = EmailNotification.builder()
-                .translationRequest(true)
-                .translationResponse(true)
-                .translationUpdate(true)
-                .roleAdd(true)
+                .translationRequest(isExistEmail)
+                .translationResponse(isExistEmail)
+                .translationUpdate(isExistEmail)
+                .roleAdd(isExistEmail)
                 .user(userEntity).build();
         userService.save(emailNotification);
 

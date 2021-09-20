@@ -1,6 +1,7 @@
 import React, {Component} from "react";
-// import Googlelogo from '../../assets/img/login/googlelogo.JPG';
 import GoogleLogin from 'react-google-login';
+import GoogleLogo from '../../assets/img/login/googleLogo.JPG';
+import {Button} from "react-bootstrap";
 import axios from "axios";
 
 const oauth = {
@@ -16,35 +17,56 @@ const config = {
     },
 };
 
+let callCount = 0;
+
 class GoogleOAuth extends Component {
     render() {
         return (
             <GoogleLogin
                 clientId={oauth.googleKey}
-                buttonText="구글 계정으로 로그인"
-                uxMode={'redirect'}
+                // uxMode={'redirect'}
                 redirectUri={oauth.appUrl}
                 onSuccess={successGoogleLogin}
                 onFailure={failLogin}
                 cookiePolicy={'single_host_origin'}
                 isSignedIn={true}
+                render={renderProps => (
+                    <Button onClick={renderProps.onClick} disabled={renderProps.disabled} style={{
+                        background: "white",
+                        border: "1px solid #ABABAB",
+                        borderRadius: "5px",
+                        color: "dimgrey",
+                        width: "277px",
+                        height: "60px"
+                    }}>
+                        <img src={GoogleLogo} className="googleLogo" alt="googleLogo" />
+                        <span style={{
+                            fontSize: "17px", float: "right", marginTop: "5px", marginRight: "22px"
+                        }}>
+                            구글 계정으로 로그인
+                        </span>
+                    </Button>
+                )}
             />
         )
     }
 }
 
 const successGoogleLogin = async (response) => {
-    let rData = await axios.post(
-        oauth.apiUrl + oauth.authPath + "/google",
-        JSON.stringify(response),
-        config
-    );
-    setItem(rData);
+    callCount++;
+    if(callCount > 1){
+        let rData = await axios.post(
+            oauth.apiUrl + oauth.authPath + "/google",
+            JSON.stringify(response),
+            config
+        );
+        setItem(rData);
+        window.location.href = oauth.appUrl;
+    }
 };
 
 function setItem(rData){
     if (rData.status === 200) {
-        //console.log(rData.data);
         sessionStorage.setItem("userInfo", JSON.stringify(rData.data.userInfo));
         localStorage.setItem("jwtToken", rData.data.jwtToken);
     }
