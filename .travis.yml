@@ -11,7 +11,7 @@ before_install:
   -in env.tar.enc -out env.tar -d
 - openssl aes-256-cbc -K $encrypted_1116e8e6e492_key -iv $encrypted_1116e8e6e492_iv
   -in application.yml.enc -out application.yml -d
-- tar xvf env.tar
+- tar xvf env.tar -C frontend/
 - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 - ". ~/.nvm/nvm.sh"
 - nvm install node
