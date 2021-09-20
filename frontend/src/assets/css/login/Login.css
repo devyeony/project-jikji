@@ -19,7 +19,6 @@
     border-radius: 2px;
     justify-content: center;
     text-align: center;
-    margin-top: 5rem;
 }
 
 .white_box list {
@@ -34,7 +33,6 @@
     color: #fff;
     font-size: 18px;
     padding: 0.7rem 1rem;
-    margin-bottom: 3rem;
 }
 
 .btn-outline-info {
@@ -49,15 +47,20 @@
     margin-bottom: 1rem;
 }
 
-.flatform .googleLogo {
-    width: 40px;
-    height: 40px;
-    float: left;
-    margin-left: 5px;
+.flatform .naver {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.flatform .google {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
 }
 
 .flatform Button {
-    margin-top: 30px;
+    margin-bottom: 10px;
     color: #fff;
     position: relative;
     border: 0;
