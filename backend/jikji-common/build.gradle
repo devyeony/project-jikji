@@ -1,5 +1,5 @@
 jar {
-    enabled = true
+    destinationDirectory = file("../build/libs")
 }
 
 bootJar {

@@ -1,21 +1,47 @@
 package com.readers.jikji.domain.user;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.readers.jikji.domain.BaseTimeEntity;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity
+/**
+ * 권한 Entity
+ */
+@ToString
 @Getter
-@Setter
-public class Authority {
+@NoArgsConstructor
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id")
+@Entity
+public class Authority extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int userId;
+
+    @Column(nullable = false)
     private int bookMetadataId;
-    private String role;
+
+    @Enumerated(EnumType.STRING)
+    @Column(length = 100, nullable = false)
+    private Role role;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @Builder
+    public Authority(int bookMetadataId, Role role, User user) {
+        this.bookMetadataId = bookMetadataId;
+        this.role = role;
+        this.user = user;
+    }
+
+    public String getRoleKey(){
+        return this.role.getKey();
+    }
 }

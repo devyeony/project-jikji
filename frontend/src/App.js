@@ -1,15 +1,16 @@
 /*eslint-disable*/
 import React, { useState } from 'react';
-import './App.css';
-import { NavLink } from 'react-bootstrap';
-import Newbook from './Newbook.js';
-import Likebook from './Likebook.js';
-import { Link, Route } from 'react-router-dom';
-import Join_login from './components/Join_login';
-import Mypage from './components/Mypage';
-import Search from './components/Search';
-import Viewer from './components/Viewer';
-import Statistics from './components/Statistics';
+import './assets/css/main/App.css';
+import Newbook from './assets/data/main/Newbook.js';
+import Likebook from './assets/data/main/Likebook.js';
+import { Link, Route, Switch } from 'react-router-dom';
+import Header from './views/common/Header';
+import Login from './views/login/Login';
+import Mypage from './views/mypage/Mypage';
+import Search from './views/search/Search';
+import Viewer from './views/viewer/Viewer';
+import Statistics from './views/statistics/Statistics';
+import SearchResult from './views/search/SearchResult';
 // import axios from 'axios';
 import dotenv from "dotenv";
 dotenv.config();
@@ -21,35 +22,13 @@ function App() {
 
   return (
     <div className="App">
-      <div className="topbar">
-			    <div className="container-fluid">
-				    <div className="social-links">
-					    <NavLink><Link to="/join_login">로그인</Link></NavLink> 
-					    <NavLink><Link to="/join_login">회원가입</Link></NavLink>
-				    </div>
-			    </div>
-		  </div>
-      <nav className="nav-menu">
-          <div className="container-fluid">
-            <div className="navbar-header">
-              <div className="navbar-brand">
-                <NavLink><i className="fas fa-book-reader"></i>
-                    <Link exact to="/">JIKJI</Link></NavLink>
-              </div>
-              <ul className="navbar-nav">
-                <li><NavLink><Link to="/viewer">VIEWER</Link></NavLink></li>
-                <li><NavLink><Link to="/mypage">마이페이지</Link></NavLink></li>
-                <li><NavLink><Link to="/search">검색 및 조회</Link></NavLink></li>
-                <li><NavLink><Link to="/statistics">통계페이지</Link></NavLink></li>
-              </ul>
-            </div>
-          </div>
-      </nav>
+      <Header />
+      <Switch>
       <Route exact path="/">
       <div className="contents">
           <br />
           <div className="mainbook">
-            <h4 style={{paddingLeft:'10px',fontWeight:'bold',fontSize:'30px'}}>
+            <h4 style={{paddingLeft:'10px', fontWeight:'bold', fontSize:'30px'}}>
               새로 업데이트 된 책
             </h4>
             <Link to="/search">+더보기</Link>
@@ -59,7 +38,7 @@ function App() {
             <div className="row">
               {
                 newbook.map((a, i)=>{
-                  return <Updatebk newbook={newbook[i]} />
+                  return <Updatebk newbook={newbook[i]} key={i} />
                 })
               }
             </div>
@@ -76,7 +55,7 @@ function App() {
             <div className="row">
               {
                 likebook.map((a, i)=>{
-                  return <Likebk likebook={likebook[i]} />
+                  return <Likebk likebook={likebook[i]} key={i} />
                 })
               }
             </div>
@@ -92,19 +71,20 @@ function App() {
         </div>
       </div>
       </Route>
-      <Route path="/join_login"><Join_login /></Route>
-      <Route path="/viewer"><Viewer /></Route>
-      <Route path="/mypage"><Mypage /></Route>
-      <Route path="/search"><Search /></Route>
-      <Route path="/statistics"><Statistics /></Route>
-      
+        <Route path="/login"><Login /></Route>
+        <Route path="/viewer"><Viewer /></Route>
+        <Route path="/mypage"><Mypage /></Route>
+        <Route path="/search"><Search /></Route>
+        <Route path="/statistics"><Statistics /></Route>
+        <Route path="/searchResult"><SearchResult /></Route>
+      </Switch>
     </div> // App
   );
 }
 
   function Updatebk(props) {
     return(
-      <div className="col-md-3">
+      <div className="col-md-3" style={{textAlign:'center'}} >
         <img src={props.newbook.img} alt="book" width="40%"/>
         <h5 className="book">{props.newbook.title}</h5>
       </div>
@@ -113,7 +93,7 @@ function App() {
 
   function Likebk(props) {
     return(
-      <div className="col-md-3">
+      <div className="col-md-3" style={{textAlign:'center'}} >
         <img src={props.likebook.img} alt="book" width="40%"/>
         <h5 className="book">{props.likebook.title}</h5>
       </div>

@@ -1,0 +1,64 @@
+.join_login {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #eeeeee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.white_box {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.025);
+    width: 30rem;
+    height: 20rem;
+    background-color: #fff;
+    border-radius: 2px;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.white_box list {
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    background-color: #120046;
+    width: 30rem;
+    height: 3rem;
+    color: #fff;
+    font-size: 18px;
+    padding: 0.7rem 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-outline-info {
+    margin: 30px;
+}
+
+.btn-outline-primary {
+    margin: 30px;
+}
+
+.list {
+    margin-bottom: 1rem;
+}
+
+.flatform .kakaoLogo, .flatform .googleLogo {
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-left: 5px;
+}
+
+.flatform Button {
+    margin-top: 30px;
+    color: #fff;
+    position: relative;
+    border: 0;
+}

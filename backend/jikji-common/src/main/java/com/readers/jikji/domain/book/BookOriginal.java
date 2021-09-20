@@ -1,20 +1,37 @@
 package com.readers.jikji.domain.book;
 
+import com.readers.jikji.domain.BaseTimeEntity;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity
+@ToString
 @Getter
-@Setter
-public class BookOriginal {
+@NoArgsConstructor
+@Entity
+public class BookOriginal extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private int bookMetadataId;
+
+    @Column(nullable = false)
+    private int page;
+
+    @Lob
+    @Column(nullable = false)
     private String content;
+
+    @ManyToOne
+    @JoinColumn(name = "book_metadata_id")
+    private BookMetadata bookMetadata;
+
+    @Builder
+    public BookOriginal(int page, String content, BookMetadata bookMetadata) {
+        this.page = page;
+        this.content = content;
+        this.bookMetadata = bookMetadata;
+    }
 }
