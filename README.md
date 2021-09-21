@@ -37,7 +37,7 @@
 
 ## ⚙️ Usage
 
-## Backend
+## Usage - Backend
 ### application.yml 파일 작성
 #### jikji-web 모듈
 - 아래의 명령을 입력하여 jikji-web 디렉토리에 resources-web 디렉토리를 생성합니다.
@@ -82,7 +82,7 @@ $ java -jar "-Dspring.profiles.active=dev" build/libs/jikji-web-0.0.1-SNAPSHOT.j
 $ java -jar "-Dspring.profiles.active=prod" build/libs/jikji-web-0.0.1-SNAPSHOT.jar
 ```
 
-## Frontend
+## Usage - Frontend
 ### .env 파일 작성
 - 아래의 명령을 입력하여 env 디렉토리를 생성합니다.
 ```
