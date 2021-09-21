@@ -41,14 +41,14 @@
 #### jikji-web 모듈에서 application.yml 파일 작성
 - 아래의 명령을 입력하여 jikji-web 디렉토리에 resources-web 디렉토리를 생성합니다.
 ```
-$ cd backend/jikji-web/src/main
-$ mkdir resources-web
+$ cd backend
+$ mkdir jikji-web/src/main/resources-web
 ```
 - resources-web 디렉토리 안에 로컬/개발/운영 환경에서의 환경변수를 관리하는 application.yml 파일을 생성한 뒤 관련 내용을 입력하고 저장합니다.
 ```
-$ nano resources-web/application-local.yml
-$ nano resources-web/application-dev.yml
-$ nano resources-web/application-prod.yml
+$ nano jikji-web/src/main/resources-web/application-local.yml
+$ nano jikji-web/src/main/resources-web/application-dev.yml
+$ nano jikji-web/src/main/resources-web/application-prod.yml
 ```
 ```
 server:
