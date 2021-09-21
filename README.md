@@ -37,4 +37,73 @@
 
 ## ⚙️ Usage
 
--
+### Backend
+- 아래의 명령을 입력하여 해당 디렉토리에 application.yml 파일을 생성합니다.
+```
+$ cd backend/jikji-web/src/main
+$ mkdir resources
+$ nano resources/application.yml
+```
+- 프로젝트에 맞게 다음의 내용을 입력하고 저장합니다.
+```
+application.yml 내용
+```
+- 아래의 명령을 입력하여 gradle 디렉토리에 실행 권한을 부여하고 빌드한 후 실행합니다.
+```
+$ chmod +x ./gradlew
+$ ./gradlew build
+$ java -jar build/libs/jikji-web-0.0.1-SNAPSHOT.jar
+```
+
+### Frontend
+- 아래의 명령을 입력하여 env 디렉토리를 생성합니다.
+```
+$ cd frontend
+$ mkdir env
+```
+- env 디렉토리 안에 <b>로컬 환경에서의 환경변수</b>를 관리하는 .env.local 파일을 생성한 뒤 관련 내용을 입력하고 저장합니다.
+```
+$ nano env/.env.local
+```
+```
+REACT_APP_URL={로컬 환경에서의 프론트엔드 URL}
+REACT_APP_API_URL={로컬 환경에서의 백엔드 URL}
+REACT_APP_GOOGLE_KEY={구글 OAuth Key}
+REACT_APP_KAKAO_KEY={카카오 OAuth Key}
+```
+- env 디렉토리 안에 <b>개발 환경에서의 환경변수</b>를 관리하는 .env.development 파일을 생성한 뒤 관련 내용을 입력하고 저장합니다.
+```
+$ nano env/.env.development
+```
+```
+REACT_APP_URL={개발 환경에서의 프론트엔드 URL}
+REACT_APP_API_URL={개발 환경에서의 백엔드 URL}
+REACT_APP_GOOGLE_KEY={구글 OAuth Key}
+REACT_APP_KAKAO_KEY={카카오 OAuth Key}
+```
+- env 디렉토리 안에 <b>운영 환경에서의 환경변수</b>를 관리하는 .env.production 파일을 생성한 뒤 관련 내용을 입력하고 저장합니다.
+```
+$ nano env/.env.production
+```
+```
+REACT_APP_URL={운영 환경에서의 프론트엔드 URL}
+REACT_APP_API_URL={운영 환경에서의 백엔드 URL}
+REACT_APP_GOOGLE_KEY={구글 OAuth Key}
+REACT_APP_KAKAO_KEY={카카오 OAuth Key}
+```
+- 아래의 명령으로 package.json 파일의 의존성을 설치합니다.
+```
+$ npm install
+```
+- 아래의 명령으로 각각의 환경에 맞게 실행합니다.
+```
+$ npm run start:local
+$ npm run start:dev
+$ npm run start:prod
+```
+- 아래의 명령으로 각각의 환경에 맞게 빌드합니다.
+```
+$ npm run build:local
+$ npm run build:dev
+$ npm run build:prod
+```
