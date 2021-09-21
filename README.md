@@ -38,7 +38,7 @@
 ## ⚙️ Usage
 
 ### Backend
-#### jikji-web 모듈에서 application.yml 파일 작성
+#### 1) jikji-web 모듈에서 application.yml 파일 작성
 - 아래의 명령을 입력하여 jikji-web 디렉토리에 resources-web 디렉토리를 생성합니다.
 ```
 $ cd backend
@@ -67,13 +67,13 @@ jwt:
   secret: {JWT 토큰 인증을 위한 비밀키}
 ```
 
-#### 프로젝트 빌드
+#### 2) 프로젝트 빌드
 - 아래의 명령을 입력하여 gradlew 파일에 실행 권한을 부여하고 빌드합니다.
 ```
 $ chmod +x ./gradlew
 $ ./gradlew build
 ```
-#### jikji-web 모듈 실행
+#### 3) jikji-web 모듈 실행
 - 아래의 명령으로 각각의 환경에 맞게 실행합니다.
 ```
 $ java -jar "-Dspring.profiles.active=local" build/libs/jikji-web-0.0.1-SNAPSHOT.jar
@@ -82,7 +82,7 @@ $ java -jar "-Dspring.profiles.active=prod" build/libs/jikji-web-0.0.1-SNAPSHOT.
 ```
 
 ### Frontend
-#### .env 파일 작성
+#### 1) .env 파일 작성
 - 아래의 명령을 입력하여 env 디렉토리를 생성합니다.
 ```
 $ cd frontend
@@ -101,7 +101,7 @@ REACT_APP_API_URL={로컬/개발/운영 환경에서의 백엔드 URL}
 REACT_APP_GOOGLE_KEY={구글 OAuth Key}
 REACT_APP_KAKAO_KEY={카카오 OAuth Key}
 ```
-#### 프로젝트 실행
+#### 2) 프로젝트 실행
 - 아래의 명령으로 package.json 파일의 의존성을 설치합니다.
 ```
 $ npm install
