@@ -42,5 +42,6 @@ out/
 
 ### 환경변수 ###
 **/resources-web
+resources-web.tar
 frontend/env
 frontend/env.tar
