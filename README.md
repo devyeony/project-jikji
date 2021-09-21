@@ -61,7 +61,7 @@ $ java -jar build/libs/jikji-web-0.0.1-SNAPSHOT.jar
 $ cd frontend
 $ mkdir env
 ```
-- env 디렉토리 안에 <b>로컬 환경에서의 환경변수</b>를 관리하는 .env.local 파일을 생성한 뒤 관련 내용을 입력하고 저장합니다.
+- env 디렉토리 안에 로컬 환경에서의 환경변수를 관리하는 .env.local 파일을 생성한 뒤 관련 내용을 입력하고 저장합니다.
 ```
 $ nano env/.env.local
 ```
@@ -71,7 +71,7 @@ REACT_APP_API_URL={로컬 환경에서의 백엔드 URL}
 REACT_APP_GOOGLE_KEY={구글 OAuth Key}
 REACT_APP_KAKAO_KEY={카카오 OAuth Key}
 ```
-- env 디렉토리 안에 <b>개발 환경에서의 환경변수</b>를 관리하는 .env.development 파일을 생성한 뒤 관련 내용을 입력하고 저장합니다.
+- env 디렉토리 안에 개발 환경에서의 환경변수를 관리하는 .env.development 파일을 생성한 뒤 관련 내용을 입력하고 저장합니다.
 ```
 $ nano env/.env.development
 ```
@@ -81,7 +81,7 @@ REACT_APP_API_URL={개발 환경에서의 백엔드 URL}
 REACT_APP_GOOGLE_KEY={구글 OAuth Key}
 REACT_APP_KAKAO_KEY={카카오 OAuth Key}
 ```
-- env 디렉토리 안에 <b>운영 환경에서의 환경변수</b>를 관리하는 .env.production 파일을 생성한 뒤 관련 내용을 입력하고 저장합니다.
+- env 디렉토리 안에 운영 환경에서의 환경변수를 관리하는 .env.production 파일을 생성한 뒤 관련 내용을 입력하고 저장합니다.
 ```
 $ nano env/.env.production
 ```
