@@ -1,5 +1,5 @@
 # 프로젝트 직지 (Project Jikji) 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ef3dde4b-9ed2-4942-b1c8-44e93cb8ac97/deploy-status)](https://app.netlify.com/sites/project-jikji/deploys) ![GitHub](https://img.shields.io/github/license/devyeony/project-jikji?color=blue)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/77f8dd0e-c454-4072-8d2d-b79a6bda89a7/deploy-status)](https://app.netlify.com/sites/project-jikji/deploys) ![GitHub](https://img.shields.io/github/license/devyeony/project-jikji?color=blue)
 > 📚저작권 없는 무료 전자책📖을 한국어 번역으로 만나보세요! [프로젝트 구텐베르크](https://www.gutenberg.org/) 의 한국어 번역 플랫폼✨
 
 <img src="https://raw.githubusercontent.com/devyeony/project-jikji/main/.github/IMAGE/wiki/main/logo.png">
