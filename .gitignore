@@ -43,5 +43,10 @@ out/
 ### 환경변수 ###
 **/resources-web
 resources-web.tar
+**/resources-batch
+resources-batch.tar
 frontend/env
 frontend/env.tar
+
+# Local Netlify folder
+.netlify
