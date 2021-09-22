@@ -9,10 +9,13 @@ jdk:
 before_install:
 - openssl aes-256-cbc -K $encrypted_4931efa05e37_key -iv $encrypted_4931efa05e37_iv
   -in env.tar.enc -out env.tar -d
+- openssl aes-256-cbc -K $encrypted_397311b7517d_key -iv $encrypted_397311b7517d_iv
+  -in resources-batch.tar.enc -out resources-batch.tar -d
 - openssl aes-256-cbc -K $encrypted_df141351798c_key -iv $encrypted_df141351798c_iv
   -in resources-web.tar.enc -out resources-web.tar -d
 - tar xvf env.tar -C frontend/
 - tar xvf resources-web.tar -C backend/jikji-web/src/main/
+- tar xvf resources-batch.tar -C backend/jikji-batch/src/main/
 - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 - ". ~/.nvm/nvm.sh"
 - nvm install node
