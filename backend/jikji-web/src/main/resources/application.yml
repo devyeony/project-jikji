@@ -1,41 +1,15 @@
-server:
-  servlet:
-    encoding:
-      charset: UTF-8
-      enabled: true
-      force: true
-      force-response: true
-
 spring:
   profiles:
     group:
       local:
         - local
+        - local-common
+        - common
       dev:
         - dev
+        - dev-common
+        - common
       prod:
         - prod
-  messages:
-    basename: messages
-    encoding: UTF-8
-  hikari:
-    auto-commit: false
-    connection-test-query: SELECT 1
-    minimum-idle: 10
-    maximum-pool-size: 50
-    transaction-isolation: TRANSACTION_READ_UNCOMMITTED
-    pool-name: jikji-db-pool
-  jpa:
-    properties:
-      hibernate:
-        format_sql: true
-        ddl-auto: update
-        hbm2ddl.auto: update
-        globally_quoted_identifiers: true
-    open-in-view: false
-    show-sql: true
-
-logging:
-  level:
-    org.hibernate.SQL: debug
-    org.hibernate.type: trace
+        - prod-common
+        - common

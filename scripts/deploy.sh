@@ -5,7 +5,7 @@ PROJECT_NAME=project-jikji
 echo "> Build 파일 복사"
 cp $REPOSITORY/zip/*.jar $REPOSITORY/
 
-JIKJI_WEB_PORT=7000
+JIKJI_WEB_PORT=7001
 echo "> $JIKJI_WEB_PORT에서 구동중인 애플리케이션 pid 확인"
 JIKJI_WEB_PID=$(lsof -ti tcp:${JIKJI_WEB_PORT})
 
@@ -32,7 +32,7 @@ echo "> $JIKJI_WEB_JAR 실행"
 
 nohup java -jar -Dspring.profiles.active=dev $JIKJI_WEB_JAR > $REPOSITORY/nohup-jikji-web.out 2>&1 &
 
-JIKJI_BATCH_PORT=9000
+JIKJI_BATCH_PORT=9001
 echo "> $JIKJI_BATCH_PORT에서 구동중인 애플리케이션 pid 확인"
 JIKJI_BATCH_PID=$(lsof -ti tcp:${JIKJI_BATCH_PORT})
 

@@ -21,19 +21,6 @@ subprojects {
 	version = '0.0.1-SNAPSHOT'
 	sourceCompatibility = '11'
 
-	task initSourceFolders {
-		sourceSets*.java.srcDirs*.each {
-			if( !it.exists() ) {
-				it.mkdirs()
-			}
-		}
-		sourceSets*.resources.srcDirs*.each {
-			if( !it.exists() ) {
-				it.mkdirs()
-			}
-		}
-	}
-
 	repositories {
 		mavenCentral()
 	}
@@ -50,5 +37,20 @@ subprojects {
 
 	test {
 		useJUnitPlatform()
+	}
+
+	sourceSets {
+		main {
+			resources {
+				srcDirs "../src/main/resources"
+				srcDirs "../src/main/resources-profiles"
+			}
+		}
+		test {
+			resources {
+				srcDirs "../src/main/resources"
+				srcDirs "../src/main/resources-profiles"
+			}
+		}
 	}
 }
