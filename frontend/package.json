@@ -31,7 +31,8 @@
     "start:local": "dotenv -e env/.env.local react-scripts start",
     "start:dev": "dotenv -e env/.env.development react-scripts start",
     "start:prod": "dotenv -e env/.env.production react-scripts start",
-    "start:temp": "dotenv -e env/.env.temp react-scripts start",
+    "start:templocal": "dotenv -e env/.env.templocal react-scripts start",
+    "start:tempdev": "dotenv -e env/.env.tempdev react-scripts start",
     "build:local": "dotenv -e env/.env.local react-scripts build",
     "build:dev": "dotenv -e env/.env.development react-scripts build",
     "build:prod": "dotenv -e env/.env.production react-scripts build"
