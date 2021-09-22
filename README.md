@@ -85,16 +85,20 @@ $ ./gradlew build
 #### 4) jikji-web 모듈 실행
 - 아래의 명령으로 각각의 환경에 맞게 실행합니다.
 ```
-$ java -jar "-Dspring.profiles.active=local" build/libs/jikji-web-*.jar
-$ java -jar "-Dspring.profiles.active=dev" build/libs/jikji-web-*jar
-$ java -jar "-Dspring.profiles.active=prod" build/libs/jikji-web-*.jar
+$ JIKJI_WEB_JAR=$(ls -tr build/libs/jikji-web-*.jar | tail -n 1)
+
+$ java -jar -Dspring.profiles.active=local $JIKJI_WEB_JAR
+$ java -jar -Dspring.profiles.active=dev $JIKJI_WEB_JAR
+$ java -jar -Dspring.profiles.active=prod $JIKJI_WEB_JAR
 ```
 #### 5) jikji-batch 모듈 실행
 - 아래의 명령으로 각각의 환경에 맞게 실행합니다.
 ```
-$ java -jar "-Dspring.profiles.active=local" build/libs/jikji-batch-*.jar
-$ java -jar "-Dspring.profiles.active=dev" build/libs/jikji-batch-*.jar
-$ java -jar "-Dspring.profiles.active=prod" build/libs/jikji-batch-*.jar
+$ JIKJI_BATCH_JAR=$(ls -tr build/libs/jikji-batch-*.jar | tail -n 1)
+
+$ java -jar -Dspring.profiles.active=local $JIKJI_BATCH_JAR
+$ java -jar -Dspring.profiles.active=dev $JIKJI_BATCH_JAR
+$ java -jar -Dspring.profiles.active=prod $JIKJI_BATCH_JAR
 ```
 
 ### Frontend
