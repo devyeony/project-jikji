@@ -37,6 +37,7 @@
 
 ## ⚙️ Usage
 
+먼저 Repository를 clone하고, 프로젝트 루트 디렉토리인 project-jikji 폴더로 이동합니다.
 ### Backend
 #### 1) Profile별 application-common.yml 파일 작성
 - 프로젝트 루트 디렉토리에서 아래의 명령을 입력하여 resources-profiles 디렉토리를 생성합니다.
@@ -65,7 +66,7 @@ jwt:
 ```
 #### 2) 각 모듈의 Profile별 포트번호 설정
 - 프로젝트 내에서 main 함수를 통해 실행되는 application 관련 모듈은 jikji-web과 jikji-batch입니다.
-- 각 모듈의 로컬/개발/운영 환경에서 쓰일 포트번호는 해당 모듈의 src/main/resources 디렉토리 내에 있는 application-local.yml/application-dev.yml/application-prod.yml에서 정할 수 있습니다. 
+- 각 모듈의 로컬/개발/운영 환경에서 쓰일 포트번호는 해당 모듈의 src/main/resources 디렉토리 내에 있는 application-local.yml, application-dev.yml, application-prod.yml에서 정할 수 있습니다. 
 - 현재 설정되어 있는 각 모듈의 Profile별 포트번호
   - jikji-web
     - local : 7000
