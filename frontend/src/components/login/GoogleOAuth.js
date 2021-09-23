@@ -61,6 +61,7 @@ const successGoogleLogin = async (response) => {
             config
         );
         setItem(rData);
+        alert(oauth.apiUrl);
         window.location.href = oauth.appUrl;
     }
 };
