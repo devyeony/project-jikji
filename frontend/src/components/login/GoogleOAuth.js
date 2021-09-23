@@ -61,6 +61,7 @@ const successGoogleLogin = async (response) => {
             config
         );
         setItem(rData);
+        alert("appurl : "+oauth.apiUrl);
         window.location.href = oauth.appUrl;
     }
 };
@@ -73,6 +74,7 @@ function setItem(rData){
 }
 
 const failLogin = () => {
+    alert("appurl : "+oauth.apiUrl);
     alert("로그인에 실패했습니다.");
 }
 
