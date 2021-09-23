@@ -38,11 +38,15 @@ before_deploy:
 - if [ "$TRAVIS_BRANCH" = "develop" ]; then mkdir -p before-deploy; fi
 - if [ "$TRAVIS_BRANCH" = "develop" ]; then cp scripts/*.sh before-deploy/; fi
 - if [ "$TRAVIS_BRANCH" = "develop" ]; then cp appspec.yml before-deploy/; fi
-- if [ "$TRAVIS_BRANCH" = "develop" ]; then cp backend/build/libs/*.jar before-deploy/; fi
-- if [ "$TRAVIS_BRANCH" = "develop" ]; then cp -r frontend/build before-deploy/build; fi
-- if [ "$TRAVIS_BRANCH" = "develop" ]; then cd before-deploy && zip -r before-deploy *; fi
+- if [ "$TRAVIS_BRANCH" = "develop" ]; then cp backend/build/libs/*.jar before-deploy/;
+  fi
+- if [ "$TRAVIS_BRANCH" = "develop" ]; then cp -r frontend/build before-deploy/build;
+  fi
+- if [ "$TRAVIS_BRANCH" = "develop" ]; then cd before-deploy && zip -r before-deploy
+  *; fi
 - if [ "$TRAVIS_BRANCH" = "develop" ]; then cd ../ && mkdir -p deploy; fi
-- if [ "$TRAVIS_BRANCH" = "develop" ]; then mv before-deploy/before-deploy.zip deploy/project-jikji.zip; fi
+- if [ "$TRAVIS_BRANCH" = "develop" ]; then mv before-deploy/before-deploy.zip deploy/project-jikji.zip;
+  fi
 deploy:
   matrix:
   - provider: s3
@@ -78,7 +82,7 @@ deploy:
       branch: main
   - provider: heroku
     api_key:
-      secure: 5zHPkSP9zmFboU6JYJY75f0UbMuVRW8wFR+SleFY/rm2mNK84Y5yVY9P1F5SYWMRDOS1YO+o9TsRzAvi9VILe1i0z/WNmapYiwTZEPswR1K9o8icIxeo+nrBnj/vj+nBGOTh6/FqRSZmv2KCpQJySwB6kXXrrdIGQBlT6oMF8LxKMwCeiJMW6MXH3UjfMb8POZWxDf+tFGbQdR3mP+OY2ZUCvZNS6sezM5oI0aNzKghkkp+BX9aGzR4ntNkSdp5PDm5rYR17JKX+1ybEVM8vNyv1jFnRusw2b/cfOPfJUFnnzAnEWTOyzeWUzo+G27qEYZij8GUbtUMAU28UfrwlERLrUzz9cOOaWS3EsxDkeMru4slGqvSeocOn5qYYdGk4m2SH4n/WGGwx2Ww/w4Cz8ndxFTzO0TpBEEf7n3WkFdzOn4NCvYW0fK+GLDLj5otE9Wnq+Fp+OoMkzmk9AxuB8fBGwpeDCDyXIWsPz5/Vz4yHJ3lfHVX8yqU93sPM51LBYkhMDmCtGVQfiAJLCrT658moOA9j0LcS+ljGKzyLsfVWiOJNjF4wYNRPr05nWXL94kLh5i6eALAu7NoE7d3KnigLvfUxs+wEgCid5JQqLuse0y4GLeYW8cv9DdD/QnkUEFsW4vilMxPz7ZJRoG0gkuWFIF/Gsyo1DGO0qRnI1Vo=
+      secure: VCr9SeaerFmO4kvw0jHw/wIQsyK8p65b1uW9h+3X1z/mSFALC8e0fpTw/XyVcYOleAjNRTHrgUkJlNBGYZ98cRmayAqvxA93frOb/foLTx3y+BlERPTKHkauY1KltbA1h55ALmoCaoza4ueNeCruxrgVtZ1UT3RFD/uzWVIyK18Mb/d89sI+0WrN+NKDK43vFlfb/FYcLUh8SK04V0Zat50nS02b19AonubrxLTMrrefzq5DjEDa7DorOlcj5ady2npzbGsPoWC1zkCeTduHhhnp72cORhz1801OIfQyvONYZF6X/kr3dkFF7hNm7bHCQ1x92T3+/zOdntkk57OOeFppfWl4CLKaBgOqjRDr1SY3ICcRY8ZmxNRdrgvLc1s/Ix9m/uJyetRBiBUFWEkW2w15LodpB6HNWkEI9f/EosN/spx1UPAfxwKQMKl3A5+WTYDF1j9S/hxHPofkKeCiq74fqtlVn0e3oPWRX9A6CDmPjQyEGb2sW8RvAWlHQ88jv2jp07Zmey92i9LKuVPsYroZRWwPvu9u4+hYojt87nZmzAHEjm9zKfnqQW8E6+JevUDf6V98AuNZb6CfNQ82QA9zdfhTYS9t4Td1kdQVA09JdgCWczQuOByk0m6A6sfalrenAOjYO4wx80RNdq1oxstlTejjzDg3uGQSdgWqzs0=
     skip_cleanup: true
     app: project-jikji-api
     on:
