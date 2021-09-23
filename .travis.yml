@@ -1,6 +1,7 @@
 branches:
   only:
   - develop
+  - main
 os:
 - linux
 language: java
@@ -28,7 +29,8 @@ before_script:
 - cd .. && cd frontend
 - npm install
 script:
-- npm run build:dev
+- if [ "$TRAVIS_BRANCH" = "develop" ]; then npm run build:dev; fi
+- if [ "$TRAVIS_BRANCH" = "main" ]; then npm run build:prod; fi
 - cd .. && cd backend
 - "./gradlew clean build"
 - cd ..
@@ -65,6 +67,20 @@ deploy:
   wait-until-deployed: true
   on:
     branch: develop
+- provider: netlify
+  site: "project-jikji"
+  auth: "$NETLIFY_AUTH_TOKEN"
+  dir: "frontend/build/"
+  edge: true
+  on:
+    branch: main
+- provider: heroku
+  api_key:
+    secure: DJvmTSNpMX+MFe4Wr+R3QONfG2M7B/28zlQo0fXBSC78cDnwAdyPuKWaFWv1oQk9E9zoOufybU+VPsOZyfjUU0VCQTm8eSv1zYXR/25K/9VZHz74eVo1qCMt5DR7Ga7q12x+5EUxnUbUQHf1bcVG4v45B5GHWOjOj2aIm3ymymWBczcXhb2biCZfkfzs6KB7oWbIAzyLCTezpI6DYeo2oOJLPws6bHQZr1x8rQADyBBMZoHwQji4VhprBg9H8VUPJlU+YemgBHBHaJr1FZzi5vblTfVf2ATTh+c7ThExRiY94jV8SLLQGAya4ecq0+97RXU3WOz80S2QWkgMhejAClnwECHFMt7gNMTtbSazVTNg33CsCK0u3IBala+yG3uNSCRZXVhkk5VlrlR01DhEP1aOf9SJ94tHWE9do2dDmdtOmWM/ZHoAT2Jl8S3D7MZM6XmrYi0KUomOtW1i4552y8gR7Ts+s/qw5cEzxcI3iwcWseqhbz3DJ44i3jOSunnVU00HQAGgv3475/Uc7BqcIKLKo1x9dwEkGYTb0teDV1B/8J0/Aj/BS92yh2Sdqf7UaI5OgPWx/vTHi+5/J/Ua34e+dDdLXDkzXe4vYa/QYV10xAeHLMdl62gKZHp1v5frVIH0SuSN2GLutbrl6AIwI2jxf+kzpWNMMD/nJvV3mMo= 
+  skip_cleanup: true
+  app: project-jikji-api
+  on:
+    branch: main
 notifications:
   slack:
     secure: R2JDrNxTqNl4HLaD0PCKsUBuFM3d9Uc6kA+QKWKljrBVwSNQygur+yZvvQonj9qx7lK4ghikkRtzbsc/CAuap7zNzI/GR9s47vUWk7Az+xPO1YGWcAg0B/7L/qJBiSoB7Y/eMBOrWVc0qr+YoT7XwFoH6GHWlFz+7sIJrZOXAOM6akMO+k+oHB0Qvr6K83p9MVOApOSf5RdlTa5AFu7tSm9sFCHJdRg6BQ7Y5/IHKN3BDCf53avoweCdSISYYVtOfHHQrVdwVIMqgAhv+4EgtzLRVXSPldU/FqdT5JiiRrXCBkGRGcq9RFmxJIpf0VoJXJmlOXN1qhY+kTqtPaHxM3YRZpAIVu9kQm2FuxC1NNEtaOjmudyydBPXPFIVpS3ItCuav0uTsomKd78BQ/6QqKv5wCSkoUc7tYd02JU7WGOeG4GUGxdDXqZV8mwEBo5hDo+bygFsaOuFVTO9tGBmZ0tyolSfisR0+y8e7KYAIViPW5jw6nESirfdutx9I05MvUPdZRT9g/lvjnI9LQwQtWXJe8BPzohGkW1R3MW7usgP0TW3mMfLFix215dZqclYvAhas29V4DGkc+NKbK0MaN74yjz+MqGDH1BAtEFG6ttN1H6dMpnpZtJ7cbSFiFg9vP5/8vt1uN9/xAC2m3y+Ecs4dUaXdtut2YQCm0i+4wg=
