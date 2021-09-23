@@ -33,8 +33,8 @@ script:
 - if [ "$TRAVIS_BRANCH" = "main" ]; then npm run build:prod; fi
 - cd .. && cd backend
 - "./gradlew clean build"
-before_deploy:
 - if [ "$TRAVIS_BRANCH" = "develop" ]; then cd ..; fi
+before_deploy:
 - if [ "$TRAVIS_BRANCH" = "develop" ]; then mkdir -p before-deploy; fi
 - if [ "$TRAVIS_BRANCH" = "develop" ]; then cp scripts/*.sh before-deploy/; fi
 - if [ "$TRAVIS_BRANCH" = "develop" ]; then cp appspec.yml before-deploy/; fi
