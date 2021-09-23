@@ -33,6 +33,7 @@ script:
 - if [ "$TRAVIS_BRANCH" = "main" ]; then npm run build:prod; fi
 - cd .. && cd backend
 - "./gradlew clean build"
+- if [ "$TRAVIS_BRANCH" = "develop" ]; then cd ..; fi
 before_deploy:
 - if [ "$TRAVIS_BRANCH" = "develop" ]; then mkdir -p before-deploy; fi
 - if [ "$TRAVIS_BRANCH" = "develop" ]; then cp scripts/*.sh before-deploy/; fi
@@ -43,45 +44,44 @@ before_deploy:
 - if [ "$TRAVIS_BRANCH" = "develop" ]; then cd ../ && mkdir -p deploy; fi
 - if [ "$TRAVIS_BRANCH" = "develop" ]; then mv before-deploy/before-deploy.zip deploy/project-jikji.zip; fi
 deploy:
-  matrix:
-  - provider: s3
-    access_key_id: "$AWS_ACCESS_KEY"
-    secret_access_key: "$AWS_SECRET_KEY"
-    bucket: project-jikji-build
-    region: ap-northeast-2
-    skip_cleanup: true
-    acl: private
-    local_dir: deploy
-    wait-until-deployed: true
-    on:
-      branch: develop
-  - provider: codedeploy
-    access_key_id: "$AWS_ACCESS_KEY"
-    secret_access_key: "$AWS_SECRET_KEY"
-    bucket: project-jikji-build
-    key: project-jikji.zip
-    bundle_type: zip
-    application: project-jikji
-    deployment_group: project-jikji-group
-    region: ap-northeast-2
-    wait-until-deployed: true
-    on:
-      branch: develop
-  - provider: netlify
-    site: "$NETLIFY_SITE_ID"
-    auth: "$NETLIFY_AUTH_TOKEN"
-    dir: "../frontend/build/"
-    edge: true
-    prod: true
-    on:
-      branch: main
-  - provider: heroku
-    api_key:
-      secure: VCr9SeaerFmO4kvw0jHw/wIQsyK8p65b1uW9h+3X1z/mSFALC8e0fpTw/XyVcYOleAjNRTHrgUkJlNBGYZ98cRmayAqvxA93frOb/foLTx3y+BlERPTKHkauY1KltbA1h55ALmoCaoza4ueNeCruxrgVtZ1UT3RFD/uzWVIyK18Mb/d89sI+0WrN+NKDK43vFlfb/FYcLUh8SK04V0Zat50nS02b19AonubrxLTMrrefzq5DjEDa7DorOlcj5ady2npzbGsPoWC1zkCeTduHhhnp72cORhz1801OIfQyvONYZF6X/kr3dkFF7hNm7bHCQ1x92T3+/zOdntkk57OOeFppfWl4CLKaBgOqjRDr1SY3ICcRY8ZmxNRdrgvLc1s/Ix9m/uJyetRBiBUFWEkW2w15LodpB6HNWkEI9f/EosN/spx1UPAfxwKQMKl3A5+WTYDF1j9S/hxHPofkKeCiq74fqtlVn0e3oPWRX9A6CDmPjQyEGb2sW8RvAWlHQ88jv2jp07Zmey92i9LKuVPsYroZRWwPvu9u4+hYojt87nZmzAHEjm9zKfnqQW8E6+JevUDf6V98AuNZb6CfNQ82QA9zdfhTYS9t4Td1kdQVA09JdgCWczQuOByk0m6A6sfalrenAOjYO4wx80RNdq1oxstlTejjzDg3uGQSdgWqzs0=
-    skip_cleanup: true
-    app: project-jikji-api
-    on:
-      branch: main
+- provider: s3
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"
+  bucket: project-jikji-build
+  region: ap-northeast-2
+  skip_cleanup: true
+  acl: private
+  local_dir: deploy
+  wait-until-deployed: true
+  on:
+    branch: develop
+- provider: codedeploy
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"
+  bucket: project-jikji-build
+  key: project-jikji.zip
+  bundle_type: zip
+  application: project-jikji
+  deployment_group: project-jikji-group
+  region: ap-northeast-2
+  wait-until-deployed: true
+  on:
+    branch: develop
+- provider: netlify
+  site: "$NETLIFY_SITE_ID"
+  auth: "$NETLIFY_AUTH_TOKEN"
+  dir: "../frontend/build/"
+  edge: true
+  prod: true
+  on:
+    branch: main
+- provider: heroku
+  api_key:
+    secure: VCr9SeaerFmO4kvw0jHw/wIQsyK8p65b1uW9h+3X1z/mSFALC8e0fpTw/XyVcYOleAjNRTHrgUkJlNBGYZ98cRmayAqvxA93frOb/foLTx3y+BlERPTKHkauY1KltbA1h55ALmoCaoza4ueNeCruxrgVtZ1UT3RFD/uzWVIyK18Mb/d89sI+0WrN+NKDK43vFlfb/FYcLUh8SK04V0Zat50nS02b19AonubrxLTMrrefzq5DjEDa7DorOlcj5ady2npzbGsPoWC1zkCeTduHhhnp72cORhz1801OIfQyvONYZF6X/kr3dkFF7hNm7bHCQ1x92T3+/zOdntkk57OOeFppfWl4CLKaBgOqjRDr1SY3ICcRY8ZmxNRdrgvLc1s/Ix9m/uJyetRBiBUFWEkW2w15LodpB6HNWkEI9f/EosN/spx1UPAfxwKQMKl3A5+WTYDF1j9S/hxHPofkKeCiq74fqtlVn0e3oPWRX9A6CDmPjQyEGb2sW8RvAWlHQ88jv2jp07Zmey92i9LKuVPsYroZRWwPvu9u4+hYojt87nZmzAHEjm9zKfnqQW8E6+JevUDf6V98AuNZb6CfNQ82QA9zdfhTYS9t4Td1kdQVA09JdgCWczQuOByk0m6A6sfalrenAOjYO4wx80RNdq1oxstlTejjzDg3uGQSdgWqzs0=
+  skip_cleanup: true
+  app: project-jikji-api
+  on:
+    branch: main
 notifications:
   slack:
     secure: R2JDrNxTqNl4HLaD0PCKsUBuFM3d9Uc6kA+QKWKljrBVwSNQygur+yZvvQonj9qx7lK4ghikkRtzbsc/CAuap7zNzI/GR9s47vUWk7Az+xPO1YGWcAg0B/7L/qJBiSoB7Y/eMBOrWVc0qr+YoT7XwFoH6GHWlFz+7sIJrZOXAOM6akMO+k+oHB0Qvr6K83p9MVOApOSf5RdlTa5AFu7tSm9sFCHJdRg6BQ7Y5/IHKN3BDCf53avoweCdSISYYVtOfHHQrVdwVIMqgAhv+4EgtzLRVXSPldU/FqdT5JiiRrXCBkGRGcq9RFmxJIpf0VoJXJmlOXN1qhY+kTqtPaHxM3YRZpAIVu9kQm2FuxC1NNEtaOjmudyydBPXPFIVpS3ItCuav0uTsomKd78BQ/6QqKv5wCSkoUc7tYd02JU7WGOeG4GUGxdDXqZV8mwEBo5hDo+bygFsaOuFVTO9tGBmZ0tyolSfisR0+y8e7KYAIViPW5jw6nESirfdutx9I05MvUPdZRT9g/lvjnI9LQwQtWXJe8BPzohGkW1R3MW7usgP0TW3mMfLFix215dZqclYvAhas29V4DGkc+NKbK0MaN74yjz+MqGDH1BAtEFG6ttN1H6dMpnpZtJ7cbSFiFg9vP5/8vt1uN9/xAC2m3y+Ecs4dUaXdtut2YQCm0i+4wg=
