@@ -74,6 +74,7 @@ function setItem(rData){
 }
 
 const failLogin = () => {
+    alert(oauth.apiUrl);
     alert("로그인에 실패했습니다.");
 }
 
