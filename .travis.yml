@@ -33,20 +33,15 @@ script:
 - if [ "$TRAVIS_BRANCH" = "main" ]; then npm run build:prod; fi
 - cd .. && cd backend
 - "./gradlew clean build"
-- if [ "$TRAVIS_BRANCH" = "develop" ]; then cd ..; fi
 before_deploy:
 - if [ "$TRAVIS_BRANCH" = "develop" ]; then mkdir -p before-deploy; fi
 - if [ "$TRAVIS_BRANCH" = "develop" ]; then cp scripts/*.sh before-deploy/; fi
 - if [ "$TRAVIS_BRANCH" = "develop" ]; then cp appspec.yml before-deploy/; fi
-- if [ "$TRAVIS_BRANCH" = "develop" ]; then cp backend/build/libs/*.jar before-deploy/;
-  fi
-- if [ "$TRAVIS_BRANCH" = "develop" ]; then cp -r frontend/build before-deploy/build;
-  fi
-- if [ "$TRAVIS_BRANCH" = "develop" ]; then cd before-deploy && zip -r before-deploy
-  *; fi
+- if [ "$TRAVIS_BRANCH" = "develop" ]; then cp backend/build/libs/*.jar before-deploy/; fi
+- if [ "$TRAVIS_BRANCH" = "develop" ]; then cp -r frontend/build before-deploy/build; fi
+- if [ "$TRAVIS_BRANCH" = "develop" ]; then cd before-deploy && zip -r before-deploy *; fi
 - if [ "$TRAVIS_BRANCH" = "develop" ]; then cd ../ && mkdir -p deploy; fi
-- if [ "$TRAVIS_BRANCH" = "develop" ]; then mv before-deploy/before-deploy.zip deploy/project-jikji.zip;
-  fi
+- if [ "$TRAVIS_BRANCH" = "develop" ]; then mv before-deploy/before-deploy.zip deploy/project-jikji.zip; fi
 deploy:
   matrix:
   - provider: s3
